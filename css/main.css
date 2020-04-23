@@ -1281,7 +1281,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f7f;
+  background: #f4d9ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2903,5 +2903,5 @@ header {
   font-size: 1em;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #c104ff;
+  color: #f71639;
 }

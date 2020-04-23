@@ -52,14 +52,14 @@
 <meta property="og:site_name" content="一个BUG搞一天。">
 <meta property="og:description" content="因项目需求需要用到，在网上学习Spring Security OAuth2.0 完之后做一下总结和整理，首先说一下关于认证授权的基本概念。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://954023026.github.io/blog.github.io/blog.github.io/posts/1144715794/1.jpg">
-<meta property="og:image" content="https://954023026.github.io/blog.github.io/blog.github.io/posts/1144715794/SpringSecurityOAuth2-0%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%5C1.jpg">
+<meta property="og:image" content="https://954023026.github.io/blog/posts/1144715794/1.jpg">
+<meta property="og:image" content="https://954023026.github.io/blog/posts/1144715794/2.jpg">
 <meta property="article:published_time" content="2020-03-08T13:26:59.000Z">
-<meta property="article:modified_time" content="2020-03-08T05:41:39.432Z">
+<meta property="article:modified_time" content="2020-04-23T15:30:52.115Z">
 <meta property="article:author" content="微笑">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://954023026.github.io/blog.github.io/blog.github.io/posts/1144715794/1.jpg">
+<meta name="twitter:image" content="https://954023026.github.io/blog/posts/1144715794/1.jpg">
 
 <link rel="canonical" href="https://954023026.github.io/posts/1144715794/">
 
@@ -239,10 +239,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-08 13:26:59 / 修改时间：05:41:39" itemprop="dateCreated datePublished" datetime="2020-03-08T13:26:59Z">2020-03-08</time>
+              <time title="创建时间：2020-03-08 13:26:59" itemprop="dateCreated datePublished" datetime="2020-03-08T13:26:59Z">2020-03-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-23 15:30:52" itemprop="dateModified" datetime="2020-04-23T15:30:52Z">2020-04-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -317,10 +323,10 @@
 <p>​	用户认证通过后，为了避免用户的每次操作都进行认证可将用户的信息保证在会话中。会话就是系统为了保持当前用户的登录状态所提供的机制，常见的有基于session方式、基于token方式等。</p>
 <p>基于session的认证方式如下图：<br>
 它的交互流程是，用户认证成功后，在服务端生成用户相关的数据保存在session(当前会话)中，发给客户端的sesssion_id 存放到 cookie 中，这样用户客户端请求时带上 session_id 就可以验证服务器端是否存在 session 数据，以此完成用户的合法校验，当用户退出系统或session过期销毁时,客户端的session_id也就无效了。</p>
-<p>​	<img src="/blog.github.io/blog.github.io/posts/1144715794/1.jpg" alt="Spring Security OAuth2"></p>
+<p>​	<img src="/blog/posts/1144715794/1.jpg" alt="1"></p>
 <p>基于token方式如下图：</p>
 <p>​	它的交互流程是，用户认证成功后，服务端生成一个token发给客户端，客户端可以放到 cookie 或 localStorage等存储中，每次请求时带上 token，服务端收到token通过验证后即可确认用户身份。<br>
-​	<img src="/blog.github.io/blog.github.io/posts/1144715794/SpringSecurityOAuth2-0%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%5C1.jpg" alt="Spring Security OAuth2"></p>
+​	<img src="/blog/posts/1144715794/2.jpg" alt="2"></p>
 <p>基于session的认证方式由Servlet规范定制，服务端要存储session信息需要占用内存资源，客户端需要支持<br>
 cookie；基于token的方式则一般不需要服务端存储token，并且不限制客户端的存储方式。如今移动互联网时代，更多类型的客户端需要接入系统，系统多是采用前后端分离的架构进行实现，所以基于token的方式更适合。</p>
 <h5 id="什么是授权？">什么是授权？</h5>
