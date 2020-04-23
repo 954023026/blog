@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>SpringSecurityOAuth2.0认证授权</title>
+    <url>/blog/posts/1144715794/</url>
+    <content><![CDATA[<blockquote>
+<p>因项目需求需要用到，在网上学习Spring Security OAuth2.0 完之后做一下总结和整理，首先说一下关于认证授权的基本概念。</p>
+</blockquote>
+<a id="more"></a>
+<!-- more -->
+<h3 id="1-基本概念">1.基本概念</h3>
+<h5 id="什么是认证">什么是认证?</h5>
+<p>​	进入移动互联网时代，大家每天都在刷手机，常用的软件有微信、支付宝、头条等,下边拿微信来举例子说明认证 相关的基本概念，在初次使用微信前需要注册成为微信用户，然后输入账号和密码即可登录微信，输入账号和密码 登录微信的过程就是认证。</p>
+<p><code>系统为什么要认证</code>？</p>
+<p>​	认证是为了保护系统的隐私数据与资源，用户的身份合法方可访问该系统的资源。</p>
+<p><code>认证</code>：用户认证就是判断一个用户的身份是否合法的过程，用户去访问系统资源时系统要求验证用户的身份信 息，身份合法方可继续访问，不合法则拒绝访问。常见的用户身份认证方式有:用户名密码登录，二维码登录，手 机短信登录*，*指纹认证等方式。</p>
+<h5 id="什么是会话">什么是会话?</h5>
+<p>​	用户认证通过后，为了避免用户的每次操作都进行认证可将用户的信息保证在会话中。会话就是系统为了保持当前用户的登录状态所提供的机制，常见的有基于session方式、基于token方式等。</p>
+<p>基于session的认证方式如下图：<br>
+它的交互流程是，用户认证成功后，在服务端生成用户相关的数据保存在session(当前会话)中，发给客户端的sesssion_id 存放到 cookie 中，这样用户客户端请求时带上 session_id 就可以验证服务器端是否存在 session 数据，以此完成用户的合法校验，当用户退出系统或session过期销毁时,客户端的session_id也就无效了。</p>
+<p>​	<img src="/blog.github.io/blog.github.io/posts/1144715794/1.jpg" alt="Spring Security OAuth2"></p>
+<p>基于token方式如下图：</p>
+<p>​	它的交互流程是，用户认证成功后，服务端生成一个token发给客户端，客户端可以放到 cookie 或 localStorage等存储中，每次请求时带上 token，服务端收到token通过验证后即可确认用户身份。<br>
+​	<img src="/blog.github.io/blog.github.io/posts/1144715794/SpringSecurityOAuth2-0%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%5C1.jpg" alt="Spring Security OAuth2"></p>
+<p>基于session的认证方式由Servlet规范定制，服务端要存储session信息需要占用内存资源，客户端需要支持<br>
+cookie；基于token的方式则一般不需要服务端存储token，并且不限制客户端的存储方式。如今移动互联网时代，更多类型的客户端需要接入系统，系统多是采用前后端分离的架构进行实现，所以基于token的方式更适合。</p>
+<h5 id="什么是授权？">什么是授权？</h5>
+<p>​	比如微信登录成功后用户即可使用微信的功能，如：发红包、发朋友圈、添加好友等，如未绑定银行卡用户则无法发送红包，绑定银行卡的用户才可以发红包，发红包功能、发朋友圈功能都是微信的资源即<code>功能资源</code>，用户拥有发红包功能的权限才可以正常使用发送红包功能，这个<code>根据用户的权限来控制用户使用资源的过程就是授权。</code></p>
+<h5 id="为什么要授权？">为什么要授权？</h5>
+<p>​	认证是为了保证用户身份的合法性，授权则是为了更细粒度的对隐私数据进行划分，授权是在认证通过后发生的，控制不同的用户能够访问不同的资源。</p>
+<p><strong>授权</strong>： 授权是用户认证通过根据用户的权限来控制用户访问资源的过程，拥有资源的访问权限则正常访问，没有权限则拒绝访问。</p>
+]]></content>
+      <categories>
+        <category>Spring Security</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpringCloud+Spring Security OAuth2 实现微服务统一认证授权</title>
+    <url>/blog/posts/182718243/</url>
+    <content><![CDATA[<blockquote>
+<p>目前正在做了一个基于Spring Cloud的微服务项目，现在的好多项目都是基于APP移动端以及前后端分离的项目，之前基于Session的前后端放到一起的项目已经慢慢失宠并淡出我们视线，尤其是当基于SpringCloud的微服务架构以及Vue、React单页面应用流行起来，为此基于前后端分离的项目用户认证也受到众人关注的一个焦点，我们先来聊一聊在分布式项目认证需求以及解决方案。</p>
+</blockquote>
+<a id="more"></a>
+<!-- more -->
+<h4 id="分布式认证需求">分布式认证需求</h4>
+<p>​	分布式系统的每个服务都会有认证、授权的需求，如果每个服务都实现一套认证授权逻辑会非常冗余，考虑分布式系统共享性的特点，需要由独立的认证服务处理系统认证授权的请求；考虑分布式系统开放性的特点，不仅对系统内部服务提供认证，对第三方系统也要提供认证。分布式认证的需求总结如下：</p>
+<p><code>统一认证授权</code></p>
+<p>​	提供独立的认证服务，统一处理认证授权。</p>
+<p>​	无论是不同类型的用户，还是不同种类的客户端(web端，H5、APP)，均采用一致的认证、权限、会话机制，实现统一认证授权。</p>
+<p>​	要实现统一则认证方式必须可扩展，支持各种认证需求，比如：用户名密码认证、短信验证码、二维码、人脸识别等认证方式，并可以非常灵活的切换</p>
+<p><code>应用接入认证</code></p>
+<p>​	应提供扩展和开放能力，提供安全的系统对接机制，并可开放部分API给接入第三方使用，一方应用（内部 系统服务）和三方应用（第三方应用）均采用统一机制接入。</p>
+<h4 id></h4>
+<h4 id="分布式认证方案">分布式认证方案</h4>
+<p><code>基于session的认证方式</code></p>
+<p>​	在分布式的环境下，基于session的认证会出现一个问题，每个应用服务都需要在session中存储用户身份信息，通过负载均衡将本地的请求分配到另一个应用服务需要将session信息带过去，否则会重新认证。</p>
+<p>这个时候，通常的做法有下面几种：</p>
+<ul>
+<li><code>Session复制</code>：多台应用服务器之间同步session，使session保持一致，对外透明</li>
+<li><code>Session黏贴</code>：当用户访问集群中某台服务器后，强制指定后续所有请求均落到此机器上。</li>
+<li><code>Session集中存储</code>：将Session存入分布式缓存中，所有服务器应用实例统一从分布式缓存中存取Session。</li>
+</ul>
+<p>总体来讲，基于session认证的认证方式，可以更好的在服务端对会话进行控制，且安全性较高。但是，session机制方式基于cookie，在复杂多样的移动客户端上不能有效的使用，并且无法跨域，另外随着系统的扩展需提高session的复制、黏贴及存储的容错性。</p>
+<p><code>基于token的认证方式</code></p>
+<p>​	基于token的认证方式，服务端不用存储认证数据，易维护扩展性强， 客户端可以把token 存在任意地方，并且可以实现web和app统一认证机制。其缺点也很明显，token由于自包含信息，因此一般数据量较大，而且每次请求都需要传递，因此比较占带宽。另外，token的签名验签操作也会给cpu带来额外的处理负担。</p>
+<p>在分析完这两种认证方式之后，决定采用基于token的认证方式，它的优点更符合我们分布式认证方案：</p>
+<ol>
+<li>适合统一认证的机制，客户端、一方应用、三方应用都遵循一致的认证机制</li>
+<li>token认证方式对第三方应用接入更适合，因为它更开放，可使用当前有流行的开放协议Oauth2.0、JWT等</li>
+<li>一般情况服务端无需存储会话信息，减轻了服务端的压力。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>SpringCloud</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>微服务/认识微服务</title>
+    <url>/blog/posts/3160502620/</url>
+    <content><![CDATA[<h2 id="认识微服务">认识微服务</h2>
+<blockquote>
+<p>在当今互联网发展中，微服务架构已经流行了很长一段时间了，接下来我们来聊一聊什么是微服务。</p>
+</blockquote>
+<a id="more"></a>
+<!-- more -->
+<h3 id="微服务的基本概念">微服务的基本概念</h3>
+<hr>
+<h4 id="1、微服务架构的定义">1、微服务架构的定义</h4>
+<p><code>微服务</code>一词源自 马丁·福勒（Martin Fowler) 和 James Lewis共同提出，在2014年3月25日写的一篇博客：<a href="https://martinfowler.com/articles/microservices.html" target="_blank" rel="noopener">Microservices</a> 该文章中对微服务定义如下：</p>
+<blockquote>
+<p>the microservice architectural style [1] is an approach to developing<br>
+a single application as a suite of small services, each running in its<br>
+own process and communicating with lightweight mechanisms, often an<br>
+HTTP resource API. These services are built around business<br>
+capabilities and independently deployable by fully automated<br>
+deployment machinery. There is a bare minimum of centralized<br>
+management of these services, which may be written in different<br>
+programming languages and use different data storage technologies.</p>
+</blockquote>
+<p>微服务架构风格是将单体应用程序拆分为<strong>多个小型的服务</strong> 并且每个服务在<strong>独立的进程</strong>中。服务间的通信采用<strong>轻量级通信</strong>的机制 通常是HTTP方式提供API 来实现。这些服务通过自动化部署的方式进行<strong>独立部署</strong>。每个服务可以根据自身的特点采用不同的语言开发同时也可以使用不同的数据存储技术。</p>
+<p>微服务是一种架构风格：没有强制性，没有绝对标准，并不是具体的某一个框架或组件。</p>
+<p><code>Martin Fowler</code>在他的博客中为微服务架构总结了六个特点：</p>
+<ul>
+<li>
+<p>一组小的服务</p>
+</li>
+<li>
+<p>独立的进程</p>
+</li>
+<li>
+<p>轻量级通信（通常是HTTP/JSON）</p>
+</li>
+<li>
+<p>基于业务能力（每个服务为独立的业务开发）</p>
+</li>
+<li>
+<p>独立部署</p>
+</li>
+<li>
+<p>无集中式管理（分布式的管理，每个服务可以使用不同的语言，不同的存储技术）</p>
+</li>
+</ul>
+<p><code>Adrian Cockcroft</code> 更是将微服务比喻成 细粒度的 SOA（面向服务的架构，SOA理念，更细化、更落地）</p>
+<p>虽然对微服务的定义进行解释，但是如果想更深层次的了解微服务 我们不得不先从单体架构说起。</p>
+<hr>
+<h4 id="2、单体架构的定义">2、单体架构的定义</h4>
+<p>一个归档包（例如war格式）包含了应用所有功能的应用程序，我们通常称之为单体应用。架构单体应用的方法论，我们称之为单体应用架构。</p>
+<p><code>单体架构好处：</code></p>
+<ul>
+<li><code>IDE友好支持</code>：NetBeans、Eclipse、IntelliJ 这样工具专门为单体应用设计。 你只需要使用其中一种 就可以在你本地机器上进行 开发 调试 部署。</li>
+<li><code>方便测试</code>：测试人员只需要测试单个应用即可。新开发的功能部署完成就可以测试所有的功能。</li>
+<li><code>容易部署</code>：打包成war包放入我们的服务器 或者打包成一个可执行的jar 执行jar包即可。</li>
+</ul>
+<p><code>单体架构缺点：</code></p>
+<ol>
+<li>复杂性高<br>
+以笔者经手的一个百万行级别的单体应用为例，整个项目包含的模块非常多，模块的边界模糊，依赖关系不清晰，代码质量参差不齐，混乱地堆砌在一起……整个项目非常复杂。每次修改代码都心惊胆战，甚至添加一个简单的功能，或者修改一个BUG都会造成隐含的缺陷。</li>
+<li>技术债务<br>
+随着时间推移、需求变更和人员更迭，会逐渐形成应用程序的技术债务，并且越积越多。“不坏不修（Not broken，don’t fix）”，这在软件开发中非常常见，在单体应用中这种思想更甚。已使用的系统设计或代码难以修改，因为应用程序的其他模块可能会以意料之外的方式使用它。</li>
+<li>部署频率低<br>
+随着代码的增多，构建和部署的时间也会增加。而在单体应用中，每次功能的变更或缺陷的修复都会导致我们需要重新部署整个应用。全量部署的方式耗时长、影响的范围大、风险高，这使得单体应用项目上线部署的频率较低。而部署频率低又导致两次发布之间会有大量的功能变更和缺陷修复，出错概率比较高。</li>
+<li>扩展能力受限<br>
+单体应用只能作为一个整体进行扩展，无法结合业务模块的特点进行伸缩。例如，应用中有的模块是计算密集型的，它需要强劲的CPU；有的模块则是IO密集型的，需要更大的内存。由于这些模块部署在一起，我们不得不在硬件的选择上做出妥协。</li>
+<li>阻碍技术创新<br>
+单体应用往往使用统一的技术平台或方案解决所有问题，团队的每个成员都必须使用相同的开发语言和框架，想要引入新的框架或技术平台会非常困难。例如，一个使用Struts 2构建的、100万行代码的单体应用，如果想要换用Spring MVC，切换成本无疑是非常高的。</li>
+</ol>
+<p>为了解决以上这些问题，服务化的思想也就应运而生。<br>
+  服务化的思想就是将单机应用中的本地方法调用改造为通过RPC接口来进行远程方法调用。以改造调用方式的方法将业务从单体应用中拆分出来，独立成一个服务部署。</p>
+<hr>
+<h4 id="3、什么是微服务">3、什么是微服务</h4>
+<p>微服务是服务化思想的进一步演化。与服务化对比微服务有以下几个特点：</p>
+<ol>
+<li><code>服务拆分粒度更细</code>：微服务可以说是更细维度的服务化，小到一个子模块，只要该模块以来的资源与其他模块都没有关系，那么就可以拆分为一个微服务。</li>
+<li><code>服务独立部署</code>：每个微服务都严格遵循独立打包部署的准则，互不影响。</li>
+<li><code>服务独立维护</code>：每个微服务都可以交由一个小团队甚至个人来开发、测试、发布和运维，并对整个生命周期负责。</li>
+<li><code>服务治理能力要求高</code>：因为拆分为微服务之后，服务的数量变多，因此需要有同意的服务治理平台，来对各个服务进行管理。</li>
+</ol>
+<h6 id="微服务架构的优点：">微服务架构的优点：</h6>
+<ol>
+<li>每个服务都比较简单，只关注于一个业务功能。</li>
+<li>微服务架构方式是松耦合的，可以提供更高的灵活性。</li>
+<li>微服务可通过最佳及最合适的不同的编程语言与工具进行开发，能够做到有的放矢地解决针对性问题。</li>
+<li>每个微服务可由不同团队独立开发，互不影响，加快推出市场的速度。</li>
+<li>微服务架构是持续交付(CD)的巨大推动力，允许在频繁发布不同服务的同时保持系统其他部分的可用性和稳定性</li>
+</ol>
+<h6 id="微服务架构的缺点：">微服务架构的缺点：</h6>
+<p>​	微服务的一些想法在实践上是好的，但当整体实现时也会呈现出其复杂性。</p>
+<ol>
+<li><code>运维开销及成本增加</code>：整体应用可能只需部署至一小片应用服务区集群，而微服务架构可能变成需要构建/测试/部署/运行数十个独立的服务，并可能需要支持多种语言和环境。这导致一个整体式系统如果由20个微服务组成，可能需要40~60个进程。</li>
+<li><code>必须有坚实的DevOps开发运维一体化技能</code>：开发人员需要熟知运维与投产环境，开发人员也需要掌握必要的数据存储技术如NoSQL，具有较强DevOps技能的人员比较稀缺，会带来招聘人才方面的挑战。</li>
+<li><code>隐式接口及接口匹配问题</code>：把系统分为多个协作组件后会产生新的接口，这意味着简单的交叉变化可能需要改变许多组件，并需协调一起发布。在实际环境中，一个新品发布可能被迫同时发布大量服务，由于集成点的大量增加，微服务架构会有更高的发布风险。</li>
+<li><code>代码重复</code>：某些底层功能需要被多个服务所用，为了避免将“同步耦合引入到系统中”，有时需要向不同服务添加一些代码，这就会导致代码重复。</li>
+<li><code>分布式系统的复杂性</code>：作为一种分布式系统，微服务引入了复杂性和其他若干问题，例如网络延迟、容错性、消息序列化、不可靠的网络、异步机制、版本化、差异化的工作负载等，开发人员需要考虑以上的分布式系统问题。</li>
+<li><code>异步机制</code>：微服务往往使用异步编程、消息与并行机制，如果应用存在跨微服务的事务性处理，其实现机制会变得复杂化。</li>
+<li><code>可测性的挑战</code>：在动态环境下服务间的交互会产生非常微妙的行为，难以可视化及全面测试。经典微服务往往不太重视测试，更多的是通过监控发现生产环境的异常，进而快速回滚或采取其他必要的行动。但对于特别在意风险规避监管或投产环境错误会产生显著影响的场景下需要特别注意。</li>
+</ol>
+<h6 id="关于微服务架构的取舍">关于微服务架构的取舍</h6>
+<ol>
+<li>在合适的项目，合适的团队，采用微服务架构收益会大于成本。</li>
+<li>微服务架构有很多吸引人的地方，但在拥抱微服务之前，也需要认清它所带来的挑战。</li>
+<li>需要避免为了“微服务”而“微服务”。</li>
+<li>微服务架构引入策略 – 对传统企业而言，开始时可以考虑引入部分合适的微服务架构原则对已有系统进行改造或新建微服务应用，逐步探索及积累微服务架构经验，而非全盘实施微服务架构。</li>
+</ol>
+<h4 id="总结"><strong>总结</strong></h4>
+<p>​	架构选择的优劣只有在系统使用几年后才能真正显现出来，并不是说以前的单体架构就一无是处，通过真确的业务理解，优秀的设计，专业的开发人员。单体应用一样可以支撑业务，同样，对于微服务架构，一个蹩脚的架构设计，一样会导致低劣的产品出来。要知道，微服务各个组件之间的交互是很复杂的，难以管理和控制。</p>
+]]></content>
+      <categories>
+        <category>微服务</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>年终总结</title>
+    <url>/blog/posts/521709994/</url>
+    <content><![CDATA[<h2 id="年终总结">年终总结</h2>
+<p><strong>2019年最后一篇博客。</strong></p>
+<p><code>总结就一句话，祝您来年不管生活还是工作都越来越顺利。</code></p>
+]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/blog/posts/1243066710/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start-more">Quick Start<!-- more --></h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
