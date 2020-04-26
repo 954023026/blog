@@ -1,9 +1,307 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>经典面试题整理</title>
-    <url>/blog/posts/1591749067/</url>
-    <content><![CDATA[<h1>经典面试题整理</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://954023026.github.io').hostname,
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="经典面试题整理  MyBatis面试题 #{} 和 ${} 的区别是什么？  #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。 #方式能够很大程度防止sql注入，$方式无法防止Sql注入。 mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。 Mybatis在处理 ${} 时，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典面试题整理">
+<meta property="og:url" content="https://954023026.github.io/posts/1591749067/index.html">
+<meta property="og:site_name" content="一个BUG搞一天。">
+<meta property="og:description" content="经典面试题整理  MyBatis面试题 #{} 和 ${} 的区别是什么？  #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。 #方式能够很大程度防止sql注入，$方式无法防止Sql注入。 mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。 Mybatis在处理 ${} 时，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://954023026.github.io/blog/posts/1591749067/1586619066544.png">
+<meta property="article:published_time" content="2020-04-26T06:05:17.486Z">
+<meta property="article:modified_time" content="2020-04-26T06:22:13.730Z">
+<meta property="article:author" content="微笑">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://954023026.github.io/blog/posts/1591749067/1586619066544.png">
+
+<link rel="canonical" href="https://954023026.github.io/posts/1591749067/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>经典面试题整理 | 一个BUG搞一天。</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个BUG搞一天。</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">让我们一起把代码变的更优雅一点。</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/blog/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/954023026/" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://954023026.github.io/posts/1591749067/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微笑">
+      <meta itemprop="description" content="技术博客,Java,记录美好学习时光">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个BUG搞一天。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          经典面试题整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-26 06:05:17 / 修改时间：06:22:13" itemprop="dateCreated datePublished" datetime="2020-04-26T06:05:17Z">2020-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/blog/posts/1591749067/" class="post-meta-item leancloud_visitors" data-flag-title="经典面试题整理" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/posts/1591749067/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/posts/1591749067/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>28k 字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>25 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>经典面试题整理</h1>
 <a id="more"></a>
 <h3 id="MyBatis面试题">MyBatis面试题</h3>
 <h5 id="和-的区别是什么？">#{} 和 ${} 的区别是什么？</h5>
@@ -487,7 +785,7 @@ ReuseExecutor：执行update或select，以sql作为key查找Statement对象，�
 </ol>
 <h5 id="java有哪些锁？乐观锁-悲观锁-synchronized-可重入锁-读写锁-用过reentrantlock吗？reentrantlock与synmchronized的区别">java有哪些锁？乐观锁 悲观锁 synchronized 可重入锁 读写锁,用过reentrantlock吗？reentrantlock与synmchronized的区别</h5>
 <p><strong>Java有哪些锁？</strong></p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">公平锁：是指按照申请锁的顺序来获取锁</span><br><span class="line">非公平所：线程获取锁的顺序不一定按照申请锁的顺序来的。</span><br><span class="line">独享锁：一次只能被一个线程所访问</span><br><span class="line">共享锁：线程可以被多个线程所持有。</span><br><span class="line">乐观锁：对于一个数据的操作并发，是不会发生修改的。在更新数据的时候，会尝试采用更新，不断重入的方式，更新数据。</span><br><span class="line">悲观锁：对于同一个数据的并发操作，是一定会发生修改的。因此对于同一个数据的并发操作，悲观锁采用加锁的形式。悲观锁认为，不加锁的操作一定会出问题，</span><br><span class="line">分段锁：<span class="number">1.7</span>及之前的concurrenthashmap。并发操作就是分段锁，其思想就是让锁的粒度变小。</span><br><span class="line">偏向锁：是指一段同步代码一直被一个线程所访问，那么该线程会自动获取锁。降低获取锁的代价</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">公平锁：是指按照申请锁的顺序来获取锁</span><br><span class="line">非公平所：线程获取锁的顺序不一定按照申请锁的顺序来的。</span><br><span class="line">独享锁：一次只能被一个线程所访问</span><br><span class="line">共享锁：线程可以被多个线程所持有。</span><br><span class="line">乐观锁：对于一个数据的操作并发，是不会发生修改的。在更新数据的时候，会尝试采用更新，不断重入的方式，更新数据。</span><br><span class="line">悲观锁：对于同一个数据的并发操作，是一定会发生修改的。因此对于同一个数据的并发操作，悲观锁采用加锁的形式。悲观锁认为，不加锁的操作一定会出问题，</span><br><span class="line">分段锁：<span class="number">1.7</span>及之前的concurrenthashmap。并发操作就是分段锁，其思想就是让锁的粒度变小。</span><br><span class="line">偏向锁：是指一段同步代码一直被一个线程所访问，那么该线程会自动获取锁。降低获取锁的代价</span><br></pre></td></tr></table></figure>
 <p><strong>reentrantlock与synmchronized的区别</strong>？</p>
 <p>​	ReentrantLock是Lock的实现类，是一个互斥的同步器，在多线程高竞争条件下，ReentrantLock比synchronized有更加优异的性能表现。</p>
 <p>Lock使用起来比较灵活，但是必须有释放锁的配合动作，Lock必须手动获取与释放锁，而synchronized不需要手动释放和开启锁，Lock只适用于代码块锁，而synchronized可用于修饰方法、代码块等。此外，reentrantlock有trylock 和lockinterruptly ，所以对锁的操作更灵活。从功能的角度看，reentrantlock支持公平锁和非公平锁 而synchronized 仅支持非公平锁。</p>
@@ -710,227 +1008,397 @@ list方法常用的实现类有ArrayList、LinkedList 和 Vector。其中ArrayLi
 页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般</p>
 <p>行级锁加在哪个位置？</p>
 <p>​	InnoDB行锁是通过给索引上的<code>索引项加锁</code>来实现的。所以，只有通过索引条件检索数据，InnoDB才使用行级锁，否则，InnoDB将使用表锁。</p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SpringSecurityOAuth2.0认证授权</title>
-    <url>/blog/posts/1144715794/</url>
-    <content><![CDATA[<blockquote>
-<p>因项目需求需要用到，在网上学习Spring Security OAuth2.0 完之后做一下总结和整理，首先说一下关于认证授权的基本概念。</p>
-</blockquote>
-<a id="more"></a>
-<!-- more -->
-<h3 id="1-基本概念">1.基本概念</h3>
-<h5 id="什么是认证">什么是认证?</h5>
-<p>​	进入移动互联网时代，大家每天都在刷手机，常用的软件有微信、支付宝、头条等,下边拿微信来举例子说明认证 相关的基本概念，在初次使用微信前需要注册成为微信用户，然后输入账号和密码即可登录微信，输入账号和密码 登录微信的过程就是认证。</p>
-<p><code>系统为什么要认证</code>？</p>
-<p>​	认证是为了保护系统的隐私数据与资源，用户的身份合法方可访问该系统的资源。</p>
-<p><code>认证</code>：用户认证就是判断一个用户的身份是否合法的过程，用户去访问系统资源时系统要求验证用户的身份信 息，身份合法方可继续访问，不合法则拒绝访问。常见的用户身份认证方式有:用户名密码登录，二维码登录，手 机短信登录*，*指纹认证等方式。</p>
-<h5 id="什么是会话">什么是会话?</h5>
-<p>​	用户认证通过后，为了避免用户的每次操作都进行认证可将用户的信息保证在会话中。会话就是系统为了保持当前用户的登录状态所提供的机制，常见的有基于session方式、基于token方式等。</p>
-<p>基于session的认证方式如下图：<br>
-它的交互流程是，用户认证成功后，在服务端生成用户相关的数据保存在session(当前会话)中，发给客户端的sesssion_id 存放到 cookie 中，这样用户客户端请求时带上 session_id 就可以验证服务器端是否存在 session 数据，以此完成用户的合法校验，当用户退出系统或session过期销毁时,客户端的session_id也就无效了。</p>
-<p>​	<img src="/blog/posts/1144715794/1.jpg" alt="1"></p>
-<p>基于token方式如下图：</p>
-<p>​	它的交互流程是，用户认证成功后，服务端生成一个token发给客户端，客户端可以放到 cookie 或 localStorage等存储中，每次请求时带上 token，服务端收到token通过验证后即可确认用户身份。<br>
-​	<img src="/blog/posts/1144715794/2.jpg" alt="2"></p>
-<p>基于session的认证方式由Servlet规范定制，服务端要存储session信息需要占用内存资源，客户端需要支持<br>
-cookie；基于token的方式则一般不需要服务端存储token，并且不限制客户端的存储方式。如今移动互联网时代，更多类型的客户端需要接入系统，系统多是采用前后端分离的架构进行实现，所以基于token的方式更适合。</p>
-<h5 id="什么是授权？">什么是授权？</h5>
-<p>​	比如微信登录成功后用户即可使用微信的功能，如：发红包、发朋友圈、添加好友等，如未绑定银行卡用户则无法发送红包，绑定银行卡的用户才可以发红包，发红包功能、发朋友圈功能都是微信的资源即<code>功能资源</code>，用户拥有发红包功能的权限才可以正常使用发送红包功能，这个<code>根据用户的权限来控制用户使用资源的过程就是授权。</code></p>
-<h5 id="为什么要授权？">为什么要授权？</h5>
-<p>​	认证是为了保证用户身份的合法性，授权则是为了更细粒度的对隐私数据进行划分，授权是在认证通过后发生的，控制不同的用户能够访问不同的资源。</p>
-<p><strong>授权</strong>： 授权是用户认证通过根据用户的权限来控制用户访问资源的过程，拥有资源的访问权限则正常访问，没有权限则拒绝访问。</p>
-]]></content>
-      <categories>
-        <category>Spring Security</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SpringCloud+Spring Security OAuth2 实现微服务统一认证授权</title>
-    <url>/blog/posts/182718243/</url>
-    <content><![CDATA[<blockquote>
-<p>目前正在做了一个基于Spring Cloud的微服务项目，现在的好多项目都是基于APP移动端以及前后端分离的项目，之前基于Session的前后端放到一起的项目已经慢慢失宠并淡出我们视线，尤其是当基于SpringCloud的微服务架构以及Vue、React单页面应用流行起来，为此基于前后端分离的项目用户认证也受到众人关注的一个焦点，我们先来聊一聊在分布式项目认证需求以及解决方案。</p>
-</blockquote>
-<a id="more"></a>
-<!-- more -->
-<h4 id="分布式认证需求">分布式认证需求</h4>
-<p>​	分布式系统的每个服务都会有认证、授权的需求，如果每个服务都实现一套认证授权逻辑会非常冗余，考虑分布式系统共享性的特点，需要由独立的认证服务处理系统认证授权的请求；考虑分布式系统开放性的特点，不仅对系统内部服务提供认证，对第三方系统也要提供认证。分布式认证的需求总结如下：</p>
-<p><code>统一认证授权</code></p>
-<p>​	提供独立的认证服务，统一处理认证授权。</p>
-<p>​	无论是不同类型的用户，还是不同种类的客户端(web端，H5、APP)，均采用一致的认证、权限、会话机制，实现统一认证授权。</p>
-<p>​	要实现统一则认证方式必须可扩展，支持各种认证需求，比如：用户名密码认证、短信验证码、二维码、人脸识别等认证方式，并可以非常灵活的切换</p>
-<p><code>应用接入认证</code></p>
-<p>​	应提供扩展和开放能力，提供安全的系统对接机制，并可开放部分API给接入第三方使用，一方应用（内部 系统服务）和三方应用（第三方应用）均采用统一机制接入。</p>
-<h4 id></h4>
-<h4 id="分布式认证方案">分布式认证方案</h4>
-<p><code>基于session的认证方式</code></p>
-<p>​	在分布式的环境下，基于session的认证会出现一个问题，每个应用服务都需要在session中存储用户身份信息，通过负载均衡将本地的请求分配到另一个应用服务需要将session信息带过去，否则会重新认证。</p>
-<p>这个时候，通常的做法有下面几种：</p>
-<ul>
-<li><code>Session复制</code>：多台应用服务器之间同步session，使session保持一致，对外透明</li>
-<li><code>Session黏贴</code>：当用户访问集群中某台服务器后，强制指定后续所有请求均落到此机器上。</li>
-<li><code>Session集中存储</code>：将Session存入分布式缓存中，所有服务器应用实例统一从分布式缓存中存取Session。</li>
-</ul>
-<p>总体来讲，基于session认证的认证方式，可以更好的在服务端对会话进行控制，且安全性较高。但是，session机制方式基于cookie，在复杂多样的移动客户端上不能有效的使用，并且无法跨域，另外随着系统的扩展需提高session的复制、黏贴及存储的容错性。</p>
-<p><code>基于token的认证方式</code></p>
-<p>​	基于token的认证方式，服务端不用存储认证数据，易维护扩展性强， 客户端可以把token 存在任意地方，并且可以实现web和app统一认证机制。其缺点也很明显，token由于自包含信息，因此一般数据量较大，而且每次请求都需要传递，因此比较占带宽。另外，token的签名验签操作也会给cpu带来额外的处理负担。</p>
-<p>在分析完这两种认证方式之后，决定采用基于token的认证方式，它的优点更符合我们分布式认证方案：</p>
-<ol>
-<li>适合统一认证的机制，客户端、一方应用、三方应用都遵循一致的认证机制</li>
-<li>token认证方式对第三方应用接入更适合，因为它更开放，可使用当前有流行的开放协议Oauth2.0、JWT等</li>
-<li>一般情况服务端无需存储会话信息，减轻了服务端的压力。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>SpringCloud</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>微服务/认识微服务</title>
-    <url>/blog/posts/3160502620/</url>
-    <content><![CDATA[<h2 id="认识微服务">认识微服务</h2>
-<blockquote>
-<p>在当今互联网发展中，微服务架构已经流行了很长一段时间了，接下来我们来聊一聊什么是微服务。</p>
-</blockquote>
-<a id="more"></a>
-<!-- more -->
-<h3 id="微服务的基本概念">微服务的基本概念</h3>
-<hr>
-<h4 id="1、微服务架构的定义">1、微服务架构的定义</h4>
-<p><code>微服务</code>一词源自 马丁·福勒（Martin Fowler) 和 James Lewis共同提出，在2014年3月25日写的一篇博客：<a href="https://martinfowler.com/articles/microservices.html" target="_blank" rel="noopener">Microservices</a> 该文章中对微服务定义如下：</p>
-<blockquote>
-<p>the microservice architectural style [1] is an approach to developing<br>
-a single application as a suite of small services, each running in its<br>
-own process and communicating with lightweight mechanisms, often an<br>
-HTTP resource API. These services are built around business<br>
-capabilities and independently deployable by fully automated<br>
-deployment machinery. There is a bare minimum of centralized<br>
-management of these services, which may be written in different<br>
-programming languages and use different data storage technologies.</p>
-</blockquote>
-<p>微服务架构风格是将单体应用程序拆分为<strong>多个小型的服务</strong> 并且每个服务在<strong>独立的进程</strong>中。服务间的通信采用<strong>轻量级通信</strong>的机制 通常是HTTP方式提供API 来实现。这些服务通过自动化部署的方式进行<strong>独立部署</strong>。每个服务可以根据自身的特点采用不同的语言开发同时也可以使用不同的数据存储技术。</p>
-<p>微服务是一种架构风格：没有强制性，没有绝对标准，并不是具体的某一个框架或组件。</p>
-<p><code>Martin Fowler</code>在他的博客中为微服务架构总结了六个特点：</p>
-<ul>
-<li>
-<p>一组小的服务</p>
-</li>
-<li>
-<p>独立的进程</p>
-</li>
-<li>
-<p>轻量级通信（通常是HTTP/JSON）</p>
-</li>
-<li>
-<p>基于业务能力（每个服务为独立的业务开发）</p>
-</li>
-<li>
-<p>独立部署</p>
-</li>
-<li>
-<p>无集中式管理（分布式的管理，每个服务可以使用不同的语言，不同的存储技术）</p>
-</li>
-</ul>
-<p><code>Adrian Cockcroft</code> 更是将微服务比喻成 细粒度的 SOA（面向服务的架构，SOA理念，更细化、更落地）</p>
-<p>虽然对微服务的定义进行解释，但是如果想更深层次的了解微服务 我们不得不先从单体架构说起。</p>
-<hr>
-<h4 id="2、单体架构的定义">2、单体架构的定义</h4>
-<p>一个归档包（例如war格式）包含了应用所有功能的应用程序，我们通常称之为单体应用。架构单体应用的方法论，我们称之为单体应用架构。</p>
-<p><code>单体架构好处：</code></p>
-<ul>
-<li><code>IDE友好支持</code>：NetBeans、Eclipse、IntelliJ 这样工具专门为单体应用设计。 你只需要使用其中一种 就可以在你本地机器上进行 开发 调试 部署。</li>
-<li><code>方便测试</code>：测试人员只需要测试单个应用即可。新开发的功能部署完成就可以测试所有的功能。</li>
-<li><code>容易部署</code>：打包成war包放入我们的服务器 或者打包成一个可执行的jar 执行jar包即可。</li>
-</ul>
-<p><code>单体架构缺点：</code></p>
-<ol>
-<li>复杂性高<br>
-以笔者经手的一个百万行级别的单体应用为例，整个项目包含的模块非常多，模块的边界模糊，依赖关系不清晰，代码质量参差不齐，混乱地堆砌在一起……整个项目非常复杂。每次修改代码都心惊胆战，甚至添加一个简单的功能，或者修改一个BUG都会造成隐含的缺陷。</li>
-<li>技术债务<br>
-随着时间推移、需求变更和人员更迭，会逐渐形成应用程序的技术债务，并且越积越多。“不坏不修（Not broken，don’t fix）”，这在软件开发中非常常见，在单体应用中这种思想更甚。已使用的系统设计或代码难以修改，因为应用程序的其他模块可能会以意料之外的方式使用它。</li>
-<li>部署频率低<br>
-随着代码的增多，构建和部署的时间也会增加。而在单体应用中，每次功能的变更或缺陷的修复都会导致我们需要重新部署整个应用。全量部署的方式耗时长、影响的范围大、风险高，这使得单体应用项目上线部署的频率较低。而部署频率低又导致两次发布之间会有大量的功能变更和缺陷修复，出错概率比较高。</li>
-<li>扩展能力受限<br>
-单体应用只能作为一个整体进行扩展，无法结合业务模块的特点进行伸缩。例如，应用中有的模块是计算密集型的，它需要强劲的CPU；有的模块则是IO密集型的，需要更大的内存。由于这些模块部署在一起，我们不得不在硬件的选择上做出妥协。</li>
-<li>阻碍技术创新<br>
-单体应用往往使用统一的技术平台或方案解决所有问题，团队的每个成员都必须使用相同的开发语言和框架，想要引入新的框架或技术平台会非常困难。例如，一个使用Struts 2构建的、100万行代码的单体应用，如果想要换用Spring MVC，切换成本无疑是非常高的。</li>
-</ol>
-<p>为了解决以上这些问题，服务化的思想也就应运而生。<br>
-  服务化的思想就是将单机应用中的本地方法调用改造为通过RPC接口来进行远程方法调用。以改造调用方式的方法将业务从单体应用中拆分出来，独立成一个服务部署。</p>
-<hr>
-<h4 id="3、什么是微服务">3、什么是微服务</h4>
-<p>微服务是服务化思想的进一步演化。与服务化对比微服务有以下几个特点：</p>
-<ol>
-<li><code>服务拆分粒度更细</code>：微服务可以说是更细维度的服务化，小到一个子模块，只要该模块以来的资源与其他模块都没有关系，那么就可以拆分为一个微服务。</li>
-<li><code>服务独立部署</code>：每个微服务都严格遵循独立打包部署的准则，互不影响。</li>
-<li><code>服务独立维护</code>：每个微服务都可以交由一个小团队甚至个人来开发、测试、发布和运维，并对整个生命周期负责。</li>
-<li><code>服务治理能力要求高</code>：因为拆分为微服务之后，服务的数量变多，因此需要有同意的服务治理平台，来对各个服务进行管理。</li>
-</ol>
-<h6 id="微服务架构的优点：">微服务架构的优点：</h6>
-<ol>
-<li>每个服务都比较简单，只关注于一个业务功能。</li>
-<li>微服务架构方式是松耦合的，可以提供更高的灵活性。</li>
-<li>微服务可通过最佳及最合适的不同的编程语言与工具进行开发，能够做到有的放矢地解决针对性问题。</li>
-<li>每个微服务可由不同团队独立开发，互不影响，加快推出市场的速度。</li>
-<li>微服务架构是持续交付(CD)的巨大推动力，允许在频繁发布不同服务的同时保持系统其他部分的可用性和稳定性</li>
-</ol>
-<h6 id="微服务架构的缺点：">微服务架构的缺点：</h6>
-<p>​	微服务的一些想法在实践上是好的，但当整体实现时也会呈现出其复杂性。</p>
-<ol>
-<li><code>运维开销及成本增加</code>：整体应用可能只需部署至一小片应用服务区集群，而微服务架构可能变成需要构建/测试/部署/运行数十个独立的服务，并可能需要支持多种语言和环境。这导致一个整体式系统如果由20个微服务组成，可能需要40~60个进程。</li>
-<li><code>必须有坚实的DevOps开发运维一体化技能</code>：开发人员需要熟知运维与投产环境，开发人员也需要掌握必要的数据存储技术如NoSQL，具有较强DevOps技能的人员比较稀缺，会带来招聘人才方面的挑战。</li>
-<li><code>隐式接口及接口匹配问题</code>：把系统分为多个协作组件后会产生新的接口，这意味着简单的交叉变化可能需要改变许多组件，并需协调一起发布。在实际环境中，一个新品发布可能被迫同时发布大量服务，由于集成点的大量增加，微服务架构会有更高的发布风险。</li>
-<li><code>代码重复</code>：某些底层功能需要被多个服务所用，为了避免将“同步耦合引入到系统中”，有时需要向不同服务添加一些代码，这就会导致代码重复。</li>
-<li><code>分布式系统的复杂性</code>：作为一种分布式系统，微服务引入了复杂性和其他若干问题，例如网络延迟、容错性、消息序列化、不可靠的网络、异步机制、版本化、差异化的工作负载等，开发人员需要考虑以上的分布式系统问题。</li>
-<li><code>异步机制</code>：微服务往往使用异步编程、消息与并行机制，如果应用存在跨微服务的事务性处理，其实现机制会变得复杂化。</li>
-<li><code>可测性的挑战</code>：在动态环境下服务间的交互会产生非常微妙的行为，难以可视化及全面测试。经典微服务往往不太重视测试，更多的是通过监控发现生产环境的异常，进而快速回滚或采取其他必要的行动。但对于特别在意风险规避监管或投产环境错误会产生显著影响的场景下需要特别注意。</li>
-</ol>
-<h6 id="关于微服务架构的取舍">关于微服务架构的取舍</h6>
-<ol>
-<li>在合适的项目，合适的团队，采用微服务架构收益会大于成本。</li>
-<li>微服务架构有很多吸引人的地方，但在拥抱微服务之前，也需要认清它所带来的挑战。</li>
-<li>需要避免为了“微服务”而“微服务”。</li>
-<li>微服务架构引入策略 – 对传统企业而言，开始时可以考虑引入部分合适的微服务架构原则对已有系统进行改造或新建微服务应用，逐步探索及积累微服务架构经验，而非全盘实施微服务架构。</li>
-</ol>
-<h4 id="总结"><strong>总结</strong></h4>
-<p>​	架构选择的优劣只有在系统使用几年后才能真正显现出来，并不是说以前的单体架构就一无是处，通过真确的业务理解，优秀的设计，专业的开发人员。单体应用一样可以支撑业务，同样，对于微服务架构，一个蹩脚的架构设计，一样会导致低劣的产品出来。要知道，微服务各个组件之间的交互是很复杂的，难以管理和控制。</p>
-]]></content>
-      <categories>
-        <category>微服务</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>年终总结</title>
-    <url>/blog/posts/521709994/</url>
-    <content><![CDATA[<h2 id="年终总结">年终总结</h2>
-<p><strong>2019年最后一篇博客。</strong></p>
-<p><code>总结就一句话，祝您来年不管生活还是工作都越来越顺利。</code></p>
-]]></content>
-      <categories>
-        <category>总结</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/blog/posts/1243066710/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<a id="more"></a></p>
-<h2 id="Quick-Start-more">Quick Start<!-- more --></h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-</search>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/posts/1144715794/" rel="prev" title="SpringSecurityOAuth2.0认证授权">
+      <i class="fa fa-chevron-left"></i> SpringSecurityOAuth2.0认证授权
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">经典面试题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis面试题"><span class="nav-number">1.0.1.</span> <span class="nav-text">MyBatis面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#和-的区别是什么？"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">#{} 和 ${} 的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍-MyBatis-的一级缓存和二级缓存的概念和实现原理？"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">介绍 MyBatis 的一级缓存和二级缓存的概念和实现原理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍一下MyBatis的缓存？"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">介绍一下MyBatis的缓存？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyBatis-执行批量插入有哪些方式？-优缺点是什么"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">MyBatis 执行批量插入有哪些方式？ 优缺点是什么?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当实体类中的属性名和表中的字段名不一样时有哪些处理方法？"><span class="nav-number">1.0.1.0.5.</span> <span class="nav-text">当实体类中的属性名和表中的字段名不一样时有哪些处理方法？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-动态-SQL-是做什么的？都有哪些动态-SQL-？能简述一下动态-SQL-的执行原理吗？"><span class="nav-number">1.0.1.0.6.</span> <span class="nav-text">Mybatis 动态 SQL 是做什么的？都有哪些动态 SQL ？能简述一下动态 SQL 的执行原理吗？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通常一个-XML-映射文件，都会写一个-Mapper-接口与之对应。请问，这个-Mapper-接口的工作原理是什么？Mapper-接口里的方法，参数不同时，方法能重载吗？"><span class="nav-number">1.0.1.0.7.</span> <span class="nav-text">通常一个 XML 映射文件，都会写一个 Mapper 接口与之对应。请问，这个 Mapper 接口的工作原理是什么？Mapper 接口里的方法，参数不同时，方法能重载吗？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mapper接口绑定有几种实现方式-分别是怎么实现的"><span class="nav-number">1.0.1.0.8.</span> <span class="nav-text">Mapper接口绑定有几种实现方式,分别是怎么实现的?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在mybatis中如何获取自动生成的-主-键值"><span class="nav-number">1.0.1.0.9.</span> <span class="nav-text">在mybatis中如何获取自动生成的(主)键值?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在-Mapper-中如何传递多个参数"><span class="nav-number">1.0.1.0.10.</span> <span class="nav-text">在 Mapper 中如何传递多个参数?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-都有哪些-Executor-执行器？它们之间的区别是什么？"><span class="nav-number">1.0.1.0.11.</span> <span class="nav-text">Mybatis 都有哪些 Executor 执行器？它们之间的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis是如何进行分页的？分页插件的原理是什么？"><span class="nav-number">1.0.1.0.12.</span> <span class="nav-text">Mybatis是如何进行分页的？分页插件的原理是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述Mybatis的插件运行原理，以及如何编写一个插件"><span class="nav-number">1.0.1.0.13.</span> <span class="nav-text">简述Mybatis的插件运行原理，以及如何编写一个插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis是如何将sql执行结果封装为目标对象并返回的？都有哪些映射形式？"><span class="nav-number">1.0.1.0.14.</span> <span class="nav-text">Mybatis是如何将sql执行结果封装为目标对象并返回的？都有哪些映射形式？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么说-Mybatis-是半自动-ORM-映射工具？它与全自动的区别在哪里？"><span class="nav-number">1.0.1.0.15.</span> <span class="nav-text">为什么说 Mybatis 是半自动 ORM 映射工具？它与全自动的区别在哪里？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyBatis-实现一对一有几种方式-具体怎么操作的？"><span class="nav-number">1.0.1.0.16.</span> <span class="nav-text">MyBatis 实现一对一有几种方式?具体怎么操作的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyBatis-实现一对多有几种方式-怎么操作的？"><span class="nav-number">1.0.1.0.17.</span> <span class="nav-text">MyBatis 实现一对多有几种方式,怎么操作的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库链接中断如何处理？"><span class="nav-number">1.0.1.0.18.</span> <span class="nav-text">数据库链接中断如何处理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在开发过程中，经常遇到插入重复的现象，这种情况该如何解决呢？"><span class="nav-number">1.0.1.0.19.</span> <span class="nav-text">在开发过程中，经常遇到插入重复的现象，这种情况该如何解决呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事务执行过程中宕机的应对处理方式"><span class="nav-number">1.0.1.0.20.</span> <span class="nav-text">事务执行过程中宕机的应对处理方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Java客户端中的一个Connection是不是在MySQL中就对应一个线程来处理这个链接呢？"><span class="nav-number">1.0.1.0.21.</span> <span class="nav-text">Java客户端中的一个Connection是不是在MySQL中就对应一个线程来处理这个链接呢？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring面试题"><span class="nav-number">1.0.2.</span> <span class="nav-text">Spring面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-提供了哪些配置方式？"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">spring 提供了哪些配置方式？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Framework-有哪些不同的功能？"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">Spring Framework 有哪些不同的功能？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解释一下什么是-aop？什么是IOC？"><span class="nav-number">1.0.2.0.3.</span> <span class="nav-text">解释一下什么是 aop？什么是IOC？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是aop，aop的作用是什么-aop中的关键名词有些那些，相互关系是什么"><span class="nav-number">1.0.2.0.4.</span> <span class="nav-text">什么是aop，aop的作用是什么?aop中的关键名词有些那些，相互关系是什么?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#说下对IOC容器的理解以及IOC容器是怎么工作的？"><span class="nav-number">1.0.2.0.5.</span> <span class="nav-text">说下对IOC容器的理解以及IOC容器是怎么工作的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring中AOP-有哪些实现方式？"><span class="nav-number">1.0.2.0.6.</span> <span class="nav-text">Spring中AOP 有哪些实现方式？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述-Spring-IoC-的实现机制？"><span class="nav-number">1.0.2.0.7.</span> <span class="nav-text">简述 Spring IoC 的实现机制？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-在容器的生命周期是什么样的？简单的说一下spring的生命周期？"><span class="nav-number">1.0.2.0.8.</span> <span class="nav-text">Spring Bean 在容器的生命周期是什么样的？简单的说一下spring的生命周期？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring中的bean都有哪些作用域？"><span class="nav-number">1.0.2.0.9.</span> <span class="nav-text">Spring中的bean都有哪些作用域？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解释一下Spring-AOP里面的几个名词？"><span class="nav-number">1.0.2.0.10.</span> <span class="nav-text">解释一下Spring AOP里面的几个名词？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#aop的底层实现，动态代理是如何动态，假如有100个对象，如何动态的为这100个对象代理"><span class="nav-number">1.0.2.0.11.</span> <span class="nav-text">aop的底层实现，动态代理是如何动态，假如有100个对象，如何动态的为这100个对象代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述一下Spring中的单例Bean的线程安全问题？"><span class="nav-number">1.0.2.0.12.</span> <span class="nav-text">简述一下Spring中的单例Bean的线程安全问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring的bean配置的几种方式？"><span class="nav-number">1.0.2.0.13.</span> <span class="nav-text">spring的bean配置的几种方式？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#说说spring的监听器的实现原理？"><span class="nav-number">1.0.2.0.14.</span> <span class="nav-text">说说spring的监听器的实现原理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-常用的注入方式有哪些？"><span class="nav-number">1.0.2.0.15.</span> <span class="nav-text">spring 常用的注入方式有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-中的-bean-是线程安全的吗？支持几种-bean-的作用域？"><span class="nav-number">1.0.2.0.16.</span> <span class="nav-text">spring 中的 bean 是线程安全的吗？支持几种 bean 的作用域？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BeanFactory和ApplicationContext的区别是什么？"><span class="nav-number">1.0.2.0.17.</span> <span class="nav-text">BeanFactory和ApplicationContext的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Aop和AspecJ-Aop有什么区别？"><span class="nav-number">1.0.2.0.18.</span> <span class="nav-text">Spring Aop和AspecJ Aop有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-JDBC-API-中存在哪些类？"><span class="nav-number">1.0.2.0.19.</span> <span class="nav-text">spring JDBC API 中存在哪些类？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解释spring中不同方式的自动装配"><span class="nav-number">1.0.2.0.20.</span> <span class="nav-text">解释spring中不同方式的自动装配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ApplicationContext通常的实现是什么？"><span class="nav-number">1.0.2.0.21.</span> <span class="nav-text">ApplicationContext通常的实现是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是基于Java的Spring注解配置-给一些常见注解的例子"><span class="nav-number">1.0.2.0.22.</span> <span class="nav-text">什么是基于Java的Spring注解配置? 给一些常见注解的例子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态代理是什么？在spring中有哪些应用？"><span class="nav-number">1.0.2.0.23.</span> <span class="nav-text">动态代理是什么？在spring中有哪些应用？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring关于事务面试题"><span class="nav-number">1.0.3.</span> <span class="nav-text">spring关于事务面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#你使用过Spring的事务吗？是怎么用的？"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">你使用过Spring的事务吗？是怎么用的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述一下Spring中的事务的实现方式？"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">简述一下Spring中的事务的实现方式？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在spring中有几种事务管理，分别是什么"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">在spring中有几种事务管理，分别是什么?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是spring-的事务隔离？Spring的事务有哪几种隔离级别-spring-事务实现方式有哪些？"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">什么是spring 的事务隔离？Spring的事务有哪几种隔离级别? spring 事务实现方式有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring如何处理线程并发问题？"><span class="nav-number">1.0.3.0.5.</span> <span class="nav-text">Spring如何处理线程并发问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态代理与cglib实现的区别？"><span class="nav-number">1.0.3.0.6.</span> <span class="nav-text">动态代理与cglib实现的区别？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC面试题"><span class="nav-number">1.0.4.</span> <span class="nav-text">SpringMVC面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#springmvc运行流程？"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">springmvc运行流程？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-MVC的主要组件有哪些？分别简述一下"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">Spring MVC的主要组件有哪些？分别简述一下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何解决POST请求中文乱码问题，GET的又如何处理呢？"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">如何解决POST请求中文乱码问题，GET的又如何处理呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringMvc的控制器是不是单例模式-如果是-有什么问题-怎么解决？"><span class="nav-number">1.0.4.0.4.</span> <span class="nav-text">SpringMvc的控制器是不是单例模式,如果是,有什么问题,怎么解决？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-SpringMVC常用的注解有哪些？"><span class="nav-number">1.0.4.0.5.</span> <span class="nav-text">6、 SpringMVC常用的注解有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、SpringMvc里面拦截器是怎么写？"><span class="nav-number">1.0.4.0.6.</span> <span class="nav-text">7、SpringMvc里面拦截器是怎么写？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、springmvc-DispatcherServlet与handlerAdapter如何关联"><span class="nav-number">1.0.4.0.7.</span> <span class="nav-text">8、springmvc DispatcherServlet与handlerAdapter如何关联?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、有了springmvc的IOC容器-还需要spring的IOC容器吗-为什么-如何处理兼容问题"><span class="nav-number">1.0.4.0.8.</span> <span class="nav-text">9、有了springmvc的IOC容器,还需要spring的IOC容器吗?为什么?如何处理兼容问题?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10、Spring-MVC-怎么做异常处理？"><span class="nav-number">1.0.4.0.9.</span> <span class="nav-text">10、Spring MVC 怎么做异常处理？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java线程有关面试题"><span class="nav-number">1.0.5.</span> <span class="nav-text">Java线程有关面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单说说线程的几种状态-以及线程的阻塞的方式"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">简单说说线程的几种状态 以及线程的阻塞的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程有哪些状态？并简单解释一下每个状态"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">线程有哪些状态？并简单解释一下每个状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是多线程环境下的伪共享（false-sharing）？"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">什么是多线程环境下的伪共享（false sharing）？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程安全的单例模式是怎么实现的？-原理是什么？"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">线程安全的单例模式是怎么实现的？ 原理是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程中wait-和sleep-的区别？"><span class="nav-number">1.0.5.0.5.</span> <span class="nav-text">线程中wait 和sleep 的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BIO、NIO、AIO-有什么区别？"><span class="nav-number">1.0.5.0.6.</span> <span class="nav-text">BIO、NIO、AIO 有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#讲讲Java中线程安全的问题，以及常用的一些手段控制线程安全包括他们的优劣势"><span class="nav-number">1.0.5.0.7.</span> <span class="nav-text">讲讲Java中线程安全的问题，以及常用的一些手段控制线程安全包括他们的优劣势</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请说出你所知道的线程同步的方法"><span class="nav-number">1.0.5.0.8.</span> <span class="nav-text">请说出你所知道的线程同步的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java有哪些锁？乐观锁-悲观锁-synchronized-可重入锁-读写锁-用过reentrantlock吗？reentrantlock与synmchronized的区别"><span class="nav-number">1.0.5.0.9.</span> <span class="nav-text">java有哪些锁？乐观锁 悲观锁 synchronized 可重入锁 读写锁,用过reentrantlock吗？reentrantlock与synmchronized的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#说说你了解的ThreadLocal的使用场景"><span class="nav-number">1.0.5.0.10.</span> <span class="nav-text">说说你了解的ThreadLocal的使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么线程执行要调用start而不是直接run（直接run，跟普通方法没什么区别，先调start，run才会作为一个线程方法运行）"><span class="nav-number">1.0.5.0.11.</span> <span class="nav-text">为什么线程执行要调用start而不是直接run（直接run，跟普通方法没什么区别，先调start，run才会作为一个线程方法运行）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java程序中怎么保证多线程的运行安全？"><span class="nav-number">1.0.5.0.12.</span> <span class="nav-text">java程序中怎么保证多线程的运行安全？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是死锁？怎么防止死锁"><span class="nav-number">1.0.5.0.13.</span> <span class="nav-text">什么是死锁？怎么防止死锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#synchronized-、-volatile-、Lock-、ReentrantLock-的区别是什么？"><span class="nav-number">1.0.5.0.14.</span> <span class="nav-text">synchronized 、 volatile 、Lock 、ReentrantLock  的区别是什么？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java相关问题面试题"><span class="nav-number">1.0.6.</span> <span class="nav-text">Java相关问题面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java中如何实现跨域？"><span class="nav-number">1.0.6.0.1.</span> <span class="nav-text">Java中如何实现跨域？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java中操作字符串都有哪些类？它们之间有什么区别？"><span class="nav-number">1.0.6.0.2.</span> <span class="nav-text">java中操作字符串都有哪些类？它们之间有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#两个Integer的引用对象传给一个swap方法在方法内部交换引用，返回后，两个引用的值是否会发现变化，原因是什么？"><span class="nav-number">1.0.6.0.3.</span> <span class="nav-text">两个Integer的引用对象传给一个swap方法在方法内部交换引用，返回后，两个引用的值是否会发现变化，原因是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一万个人抢100个红包，如何实现（不用队列），如何保证2个人不能抢到同一个红包，可用分布式锁"><span class="nav-number">1.0.6.0.4.</span> <span class="nav-text">一万个人抢100个红包，如何实现（不用队列），如何保证2个人不能抢到同一个红包，可用分布式锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述-tcp-和-udp的区别？"><span class="nav-number">1.0.6.0.5.</span> <span class="nav-text">简述 tcp 和 udp的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是-CSRF-攻击，如何避免？"><span class="nav-number">1.0.6.0.6.</span> <span class="nav-text">什么是 CSRF 攻击，如何避免？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tcp为什么要三次握手，两次不行吗？为什么？"><span class="nav-number">1.0.6.0.7.</span> <span class="nav-text">tcp为什么要三次握手，两次不行吗？为什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java中数组在内存中如何分配？"><span class="nav-number">1.0.6.0.8.</span> <span class="nav-text">java中数组在内存中如何分配？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么重写equals时必须重写hashCode方法？"><span class="nav-number">1.0.6.0.9.</span> <span class="nav-text">为什么重写equals时必须重写hashCode方法？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解释Java堆空间及GC"><span class="nav-number">1.0.6.0.10.</span> <span class="nav-text">解释Java堆空间及GC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#谈谈你对Java垃圾回收机制的了解"><span class="nav-number">1.0.6.0.11.</span> <span class="nav-text">谈谈你对Java垃圾回收机制的了解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#讲一讲java中的final和static以及你熟悉的Java中使用final修饰的类"><span class="nav-number">1.0.6.0.12.</span> <span class="nav-text">讲一讲java中的final和static以及你熟悉的Java中使用final修饰的类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java集合面试题"><span class="nav-number">1.0.7.</span> <span class="nav-text">Java集合面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-和-Set-的区别？"><span class="nav-number">1.0.7.0.1.</span> <span class="nav-text">List 和 Set 的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashSet-是如何保证不重复的"><span class="nav-number">1.0.7.0.2.</span> <span class="nav-text">HashSet 是如何保证不重复的</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java中几种集合的区别以及底层实现是什么样的？"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">java中几种集合的区别以及底层实现是什么样的？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList实现原理"><span class="nav-number">1.0.7.1.1.</span> <span class="nav-text">ArrayList实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap实现原理"><span class="nav-number">1.0.7.1.2.</span> <span class="nav-text">HashMap实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashSet实现原理"><span class="nav-number">1.0.7.1.3.</span> <span class="nav-text">HashSet实现原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单说说hashmap的底层实现原理"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">简单说说hashmap的底层实现原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存面试题"><span class="nav-number">1.0.8.</span> <span class="nav-text">缓存面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单说说memcache和redis的两种缓存的区别以及分别使用什么样的项目中？"><span class="nav-number">1.0.8.0.1.</span> <span class="nav-text">简单说说memcache和redis的两种缓存的区别以及分别使用什么样的项目中？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL面试题"><span class="nav-number">1.0.9.</span> <span class="nav-text">MySQL面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#你了解的Mysql的几种引擎？-分别适合什么样的数据库"><span class="nav-number">1.0.9.0.1.</span> <span class="nav-text">你了解的Mysql的几种引擎？ 分别适合什么样的数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的"><span class="nav-number">1.0.9.0.2.</span> <span class="nav-text">mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简单讲讲mysql的锁机制以及的行级锁加在哪个位置？"><span class="nav-number">1.0.9.0.3.</span> <span class="nav-text">简单讲讲mysql的锁机制以及的行级锁加在哪个位置？</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="微笑"
+      src="/blog/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">微笑</p>
+  <div class="site-description" itemprop="description">技术博客,Java,记录美好学习时光</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/yourname" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yourname" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      
+       <div>
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="110" src="//music.163.com/outchain/player?type=2&id=526464145&auto=0&height=66"></iframe>
+       </div>
+      
+
+
+      <!-- 添加近期文章 -->
+      
+        <div class="links-of-blogroll motion-element links-of-blogroll-block">
+          <div class="links-of-blogroll-title">
+            <!-- modify icon to fire by szw -->
+            <i class="fa fa-history fa-" aria-hidden="true"></i>
+            近期文章
+          </div>
+          <ul class="links-of-blogroll-list">
+            
+            
+              <li>
+                <a href="/blog/" title="" target="_blank"></a>
+              </li>
+            
+              <li>
+                <a href="/blog/" title="" target="_blank"></a>
+              </li>
+            
+              <li>
+                <a href="/blog/" title="" target="_blank"></a>
+              </li>
+            
+              <li>
+                <a href="/blog/" title="" target="_blank"></a>
+              </li>
+            
+              <li>
+                <a href="/blog/" title="" target="_blank"></a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微笑</span>
+</div>
+
+        <div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+   
+    <span class="site-uv">
+       我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+    </span>
+   <span class="agesicon"> <span>
+   
+   
+     <span class="site-pv">
+       历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇。
+     </span>
+   
+ 
+</div>
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=Et7HjwbCekhAgSdgtS4nViuq-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'Et7HjwbCekhAgSdgtS4nViuq-gzGzoHsz',
+            'X-LC-Key': '3htjjTDFTKLscCuCqF47i1e6',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'Et7HjwbCekhAgSdgtS4nViuq-gzGzoHsz',
+    appKey: '3htjjTDFTKLscCuCqF47i1e6',
+    placeholder: "说点什么吧。",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+  <script>
+    function timer() {
+      var ages = moment.preciseDiff(moment(),moment(20181001,"YYYYMMDD"));
+      //去除时分秒信息
+      ages = ages.replace(/\s?\d{0,2}\s+hours?/, "");
+      ages = ages.replace(/\s?\d{0,2}\s+minutes?/, "");
+      ages = ages.replace(/\s?\d{0,2}\s+seconds?/, "");
+      //将年月日转换为中文
+      ages = ages.replace(/years?/, "年");
+      ages = ages.replace(/months?/, "月");
+      ages = ages.replace(/days?/, "天");
+      ages = ages.replace(/\d+/g, '<span style="color:#1094e8">$&</span>');
+      span.innerHTML = ` &nbsp; | &nbsp;我已在此等候你 ${ages}`;
+    }
+    var span = document.createElement("span");
+    //插入到agesicon之后
+    var agesicon = document.querySelector(".agesicon");
+    document.querySelector(".copyright").insertBefore(span, agesicon.nextSibling);
+    timer();
+  </script>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true}});</script></body>
+</html>
