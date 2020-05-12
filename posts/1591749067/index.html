@@ -45,16 +45,16 @@
   };
 </script>
 
-  <meta name="description" content="经典面试题整理 MyBatis面试题 #{} 和 ${} 的区别是什么？   #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。   #方式能够很大程度防止sql注入，$方式无法防止Sql注入。   mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。   Mybatis在处理">
+  <meta name="description" content="经典面试题整理 MyBatis面试题 #{} 和 ${} 的区别是什么？   #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。   #方式能够很大程度防止sql注入，提高系统安全性，$方式无法防止Sql注入。   mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。   Myb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典面试题整理">
 <meta property="og:url" content="https://954023026.github.io/posts/1591749067/index.html">
 <meta property="og:site_name" content="一个BUG搞一天。">
-<meta property="og:description" content="经典面试题整理 MyBatis面试题 #{} 和 ${} 的区别是什么？   #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。   #方式能够很大程度防止sql注入，$方式无法防止Sql注入。   mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。   Mybatis在处理">
+<meta property="og:description" content="经典面试题整理 MyBatis面试题 #{} 和 ${} 的区别是什么？   #将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。   #方式能够很大程度防止sql注入，提高系统安全性，$方式无法防止Sql注入。   mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。   Myb">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://954023026.github.io/blog/posts/1591749067/1586619066544.png">
 <meta property="article:published_time" content="2020-04-26T06:05:17.486Z">
-<meta property="article:modified_time" content="2020-04-26T06:51:50.372Z">
+<meta property="article:modified_time" content="2020-05-09T13:44:34.175Z">
 <meta property="article:author" content="微笑">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -238,10 +238,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-26 06:05:17 / 修改时间：06:51:50" itemprop="dateCreated datePublished" datetime="2020-04-26T06:05:17Z">2020-04-26</time>
+              <time title="创建时间：2020-04-26 06:05:17" itemprop="dateCreated datePublished" datetime="2020-04-26T06:05:17Z">2020-04-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-09 13:44:34" itemprop="dateModified" datetime="2020-05-09T13:44:34Z">2020-05-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -309,16 +315,13 @@
 <p>#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。$将传入的数据直接显示生成在sql中。</p>
 </li>
 <li>
-<p>#方式能够很大程度防止sql注入，$方式无法防止Sql注入。</p>
+<p>#方式能够很大程度防止sql注入，提高系统安全性，$方式无法防止Sql注入。</p>
 </li>
 <li>
 <p>mybatis在处理#{}时，会将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值。</p>
 </li>
 <li>
-<p>Mybatis在处理 ${} 时，就是把${}替换成变量的值,直接进行sql拼接。</p>
-</li>
-<li>
-<p>使用#{}可以有效的防止SQL注入，提高系统安全性。</p>
+<p>Mybatis在处理 ${} 时，就是把${}替换成变量的值，直接进行sql拼接，在处理#的时候会替换为?号，调用PreparedStatement的set方法来赋值</p>
 </li>
 </ol>
 <a id="more"></a>
