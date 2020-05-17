@@ -11,7 +11,7 @@
 <p>Spring是一个开源框架，主要是为了解决企业开发的复杂性而创建的，给开发java应用程序提供了很多基础架构的支持，它包含了一些很好的功能，比如依赖注入和开箱即用的模块，比如Springmvc，Spring JDBC等，提高了我们的开发效率。</p>
 <p>spring boot的话它设计目的是用来简化Spring应用的初始搭建以及开发过程，基本上是spring框架的扩展，它不需要设置spring所需要的xml配置了，提高了我们的开发效率，还内嵌了tomcat等一些容器，可以直接跑起来，不需要做部署了，这就是我理解的它们之间的区别，谢谢。</p>
 <p>（上面是结合自己的语言说的，下面贴上图片，要补充的还可以补充，<a href="https://blog.csdn.net/a909422229/article/details/82661286%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/a909422229/article/details/82661286）</a></p>
-<p><img src="/blog/posts/667971766/Lenovo/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/5.6%E7%BA%BF%E4%B8%8A%E9%9D%A2%E8%AF%95%E9%A2%98.assets/1588776308392-1588871418158.png" alt="1588776308392"></p>
+<p><img src="http://qaghauodb.bkt.clouddn.com/Bolg1586619066544.png" alt></p>
 <h5 id="2-什么是AOP，项目中哪些地方用到了AOP">2.什么是AOP，项目中哪些地方用到了AOP</h5>
 <p>AOP就是面向切面编程，它可以让我们在不修改之前业务逻辑的基础上可以动态的增加功能，从而使我们业务逻辑各部分耦合度降低，同时还提高了我们的开发效率，</p>
 <p>（哪儿用到了就需要自己想项目中哪用到了，可以说用来做日志，安全或异常处理功能。）</p>
@@ -214,7 +214,7 @@ select id from t where name like ‘abc%’</p>
 <p>首先他们两者的语法上抽象类是可以有构造方法，可以有普通成员变量，还可以包含一些非抽象的方法，接口中没有构造方法，也不能有普通成员变量，只能是公共的静态的常量，不可以有非抽象的普通方法，</p>
 <p>抽象类可以实现代码的复用，如果你拥有一些方法并且想让它们中的一些有默认实现，那么就使用抽象类</p>
 <p>如果说想实现多重继承，那就必须使用接口，因为java不支持多继承，但可以实现多个接口</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1870221-cc52092cc8b11d0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="http://qaghauodb.bkt.clouddn.com/Bolg1870221-cc52092cc8b11d0a.webp" alt></p>
 <h5 id="47-如何保证缓存-redis-与数据库-MySQL-的一致性">47.如何保证缓存(redis)与数据库(MySQL)的一致性</h5>
 <p>我们可以采用先淘汰缓存，在写入数据库，在休眠1秒之后再次淘汰缓存，延迟双删策略来保证数据的一致性，不过这样增长了处理时间</p>
 <p>我们还可以新增一个线下的读binlog的异步淘汰模块，读取到binlog中的数据，异步的淘汰缓存。 具体是使用阿里的Canal完成订阅binlog日志的功能</p>
