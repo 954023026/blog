@@ -53,8 +53,9 @@
 <meta property="og:description" content="面试题整理 拦截器跟监听器的执行顺序(两遍) 首先执行监听器，它也是随web应用的启动而启动，只初始化一次，随web应用的停止而销毁的，之后执行过滤器，主要的用途是过滤字符编码、做一些业务逻辑判断等，之后再执行拦截器，拦截器的配置一般在SpringMVC的配置文件中，实现上基于java反射机制，属于面向切面编程（AOP）的一种应用 监听器 &gt; 过滤器 &gt; 拦截器 1.spring跟sp">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://954023026.github.io/blog/posts/667971766/Lenovo/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/5.6%E7%BA%BF%E4%B8%8A%E9%9D%A2%E8%AF%95%E9%A2%98.assets/1588776308392-1588871418158.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1870221-cc52092cc8b11d0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp">
 <meta property="article:published_time" content="2020-05-09T04:10:08.635Z">
-<meta property="article:modified_time" content="2020-05-12T05:09:54.557Z">
+<meta property="article:modified_time" content="2020-05-17T02:58:59.789Z">
 <meta property="article:author" content="微笑">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -246,7 +247,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-12 05:09:54" itemprop="dateModified" datetime="2020-05-12T05:09:54Z">2020-05-12</time>
+                <time title="修改时间：2020-05-17 02:58:59" itemprop="dateModified" datetime="2020-05-17T02:58:59Z">2020-05-17</time>
               </span>
 
           
@@ -277,14 +278,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.4k 字</span>
+              <span>12k 字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -336,6 +337,7 @@ Mapper接口是没有实现类的，当调用接口方法时，接口全限名+�
 <p>2.实现Runnable接口，不论创建多少个线程，只需要创建一个Runnable接口实现类的对象</p>
 <p>3.实现Callable接口</p>
 <p>4.线程池</p>
+<p>什么是多线程</p>
 <h5 id="13-索引的建立">13.索引的建立</h5>
 <p>对id建立主键索引，对唯一字段建立唯一索引， 经常与其他表进行连接的表，在连接字段上应该建立索引，建立在选择性高的字段上，索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引</p>
 <h5 id="14-说一下redis缓存雪崩和缓存穿透，缓存击穿">14.说一下redis缓存雪崩和缓存穿透，缓存击穿</h5>
@@ -364,10 +366,10 @@ Mapper接口是没有实现类的，当调用接口方法时，接口全限名+�
 <p>3.利用order操作可以利用索引快速定位数据，避免全表扫描，速度快</p>
 <h5 id="17-git常用命令">17.git常用命令</h5>
 <p>pull拉取代码，push推送代码，commit提交代码到仓库  branch建立分支</p>
-<h5 id="18-springboot跟平常搭建springmvc项目又什么区别">18.springboot跟平常搭建springmvc项目又什么区别</h5>
-<p>springboot它主要是为了解决使用Spring框架需要进行大量的配置太麻烦的问题，实现了自动配置，使用嵌入式web服务器，降低了项目搭建的复杂度，</p>
+<h5 id="18-springboot跟平常搭建springmvc项目又什么区别，Spring-Boot与Spring的区别？">18.springboot跟平常搭建springmvc项目又什么区别，Spring Boot与Spring的区别？</h5>
+<p>springboot它主要是为了解决使用Spring框架需要进行大量的配置太麻烦的问题，实现了自动配置，嵌入了Tomcat这样的web服务器，降低了项目搭建的复杂度，</p>
 <p>Spring MVC它是Spring的一个模块，是基于Spring的一个 MVC 框架，在之前使用springmvc开发时我们还需要使用到像tomcat这服务器启动，而springboot内置服务器容器，我们只需要启动即可</p>
-<p>换句话说就是换用Spring Boot以后，项目初始化方法变了，配置文件变了，另外就是不需要单独安装Tomcat这类容器服务器了，maven打出jar包直接跑起来就是个网站，但你最核心的业务逻辑实现与业务流程实现没有任何变化。3</p>
+<p>换句话说就是换用Spring Boot以后，项目初始化方法变了，配置文件变了，另外就是不需要单独安装Tomcat这类容器服务器了，maven打出jar包直接跑起来就是个网站，但你最核心的业务逻辑实现与业务流程实现没有任何变化。</p>
 <h5 id="19-谈谈spring的理解">19.谈谈spring的理解</h5>
 <p>我对spring的理解就是，spring是一个轻量级的框架，它最核心的概念就是ioc跟aop，aop是指面向切面编程，比如在我们不修改原代码逻辑的情况下给程序统一添加新的功能的一种技术，比如记录日志，事物，安全这些，ioc控制反转，它是一种编程思想，用来实现模块间的解耦，在spring中它作用就是对对象的创建，维护，销毁等生命周期的控制，实现控制反转，另外spring还集成了各种优秀的框架，低侵入式设计也可以使程序代码对框架的依赖最小化，这就是我对spring的理解，谢谢</p>
 <h5 id="20-error和exception有什么区别">20.error和exception有什么区别</h5>
@@ -378,6 +380,10 @@ Mapper接口是没有实现类的，当调用接口方法时，接口全限名+�
 <h5 id="为什么需要SpringCloud？">为什么需要SpringCloud？</h5>
 <p>微服务的角度而言就是把我们一个大的项目分解成多个小的模块，这些小的模块组合起来，完成功能。</p>
 <p>而拆分出多个模块以后，就会出现各种各样的问题，而Spring Cloud提供了一整套的解决方案。</p>
+<h5 id="什么是分布式和微服务">什么是分布式和微服务</h5>
+<p>简单的说，微服务是架构设计方式，分布式是系统部署方式，两者概念不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">微服务：简单来说微服务就是很小的服务，小到一个服务只对应一个单一的功能，只做一件事。这个服务可以单独部署运行，服务之间可以通过RPC来相互交互，每个微服务都是由独立的小团队开发，测试，部署，上线，负责它的整个生命周期。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分布式：分布式就是服务是分散部署在不同的机器上的，一个服务可能负责几个功能，是一种面向SOA架构的，服务之间也是通过rpc来交互或者是webservice来交互的。逻辑架构设计完后就该做物理架构设计，系统应用部署在超过一台服务器或虚拟机上，且各分开部署的部分彼此通过各种通讯协议交互信息，就可算作分布式部署，生产环境下的微服务肯定是分布式部署的，分布式部署的应用不一定是微服务架构的，比如集群部署，它是把相同应用复制到不同服务器上，但是逻辑功能上还是单体应用。</span><br></pre></td></tr></table></figure>
 <h5 id="22-MySQL-存储过程">22.MySQL 存储过程</h5>
 <p>存储过程是一种在数据库中存储的复杂程序，是为了完成特点功能的SQL语句集。</p>
 <p>优点，存储过程可以封装，并隐藏复杂的商业逻辑，可以回传值，并可以接受参数</p>
@@ -434,6 +440,12 @@ Mapper接口是没有实现类的，当调用接口方法时，接口全限名+�
 <p>1.在JDK1.7中，当并发执行扩容操作时会造成环形链和数据丢失的情况。<br>
 2.在JDK1.8中，在并发执行put操作时会发生数据覆盖的情况。</p>
 <h5 id="39-SQL优化的几种方式">39.SQL优化的几种方式</h5>
+<h5 id="mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的">mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的</h5>
+<p>​	1、避免 SELECT *，需要什么数据，就查询对应的字段。</p>
+<p>​	2、利用自增主键索引、<code>order by</code>加<code>limit</code>，不使用offset</p>
+<p>​	3、在性能要求比较高的场景中，杜绝查询中使用<code>临时表</code></p>
+<p>​	4、使用 EXPLAIN 关键字分析SQL语句性能。</p>
+<p>​	5、当只需要一条数据的时候，使用limit 1</p>
 <p>1，对查询进行优化避免全表扫描，首先考虑where和group by上涉及的列进行建立索引</p>
 <p>2，应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描</p>
 <p>select id from t where num is null<br>
@@ -479,6 +491,92 @@ select id from t where name like ‘abc%’</p>
 <p>死锁的产生是指两个以上的进程在执行过程中，争夺资源造成的一种相互等待的现象，若是没有外力作用的话，它们都将无法推进下去，这个我们称之为死锁。</p>
 <p>解决方案：表级锁不会产生死锁，所以解决死锁主要还是针对于最常用的InnoDB存储引擎。</p>
 <h5 id="41-解决MySQL性能瓶颈">41.解决MySQL性能瓶颈</h5>
+<h5 id="42-并发与并行的区别是什么？">42.并发与并行的区别是什么？</h5>
+<p>并发是指多件事情，在同一时间段内同时发生，在多个任务之间是互相抢占资源的，其实看似是同时发生的事情，其实是互相交替执行的。</p>
+<p>并行的话，在执行多个任务之间是不互相抢占资源的，只有在多CPU的情况下，才会发生并行</p>
+<h5 id="43-oracle分页和mysql分页区别">43.oracle分页和mysql分页区别</h5>
+<p>mysql使用的是limit进行分页</p>
+<p>oracle使用ROWNUM关键字进行分页</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line">  <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> ROW_.*, <span class="keyword">ROWNUM</span> ROWNUM_</span><br><span class="line">          <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> *</span><br><span class="line">                  <span class="keyword">FROM</span> TABLE1</span><br><span class="line">                 <span class="keyword">WHERE</span> TABLE1_ID = XX</span><br><span class="line">                 <span class="keyword">ORDER</span> <span class="keyword">BY</span> GMT_CREATE <span class="keyword">DESC</span>) ROW_</span><br><span class="line">         <span class="keyword">WHERE</span> <span class="keyword">ROWNUM</span> &lt;= <span class="number">20</span>)</span><br><span class="line"> <span class="keyword">WHERE</span> ROWNUM_ &gt;= <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="44-ThreadLocal有了解过吗。">44.ThreadLocal有了解过吗。</h5>
+<p>threadlocal它是一个线程内部的存储类，可以在指定线程内存储数据，数据存储以后，只有指定线程可以得到存储数据，因为在使用set 和 get 操作的都是对应线程的 table数组，因此在不同的线程中访问同一个 ThreadLocal 对象的 set 和 get 进行存取数据是不会相互干扰的。</p>
+<h5 id="45-ThreadLocal和Synchronized区别">45.ThreadLocal和Synchronized区别</h5>
+<p>ThreadLocal和Synchronized都是为了解决多线程中相同变量的访问冲突问题</p>
+<p>不同的点是Synchronized是通过线程等待，牺牲时间来解决访问冲突</p>
+<p>ThreadLocal是通过每个线程单独一份存储空间，牺牲空间来解决冲突，并且相比于Synchronized，ThreadLocal具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问到想要的值。</p>
+<h5 id="46-抽象类和接口都有什么区别？">46.抽象类和接口都有什么区别？</h5>
+<p>首先他们两者的语法上抽象类是可以有构造方法，可以有普通成员变量，还可以包含一些非抽象的方法，接口中没有构造方法，也不能有普通成员变量，只能是公共的静态的常量，不可以有非抽象的普通方法，</p>
+<p>抽象类可以实现代码的复用，如果你拥有一些方法并且想让它们中的一些有默认实现，那么就使用抽象类</p>
+<p>如果说想实现多重继承，那就必须使用接口，因为java不支持多继承，但可以实现多个接口</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1870221-cc52092cc8b11d0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h5 id="47-如何保证缓存-redis-与数据库-MySQL-的一致性">47.如何保证缓存(redis)与数据库(MySQL)的一致性</h5>
+<p>我们可以采用先淘汰缓存，在写入数据库，在休眠1秒之后再次淘汰缓存，延迟双删策略来保证数据的一致性，不过这样增长了处理时间</p>
+<p>我们还可以新增一个线下的读binlog的异步淘汰模块，读取到binlog中的数据，异步的淘汰缓存。 具体是使用阿里的Canal完成订阅binlog日志的功能</p>
+<h5 id="48-java什么是反射机制">48.java什么是反射机制</h5>
+<p>程序运行过程中动态的操作对象，对于任意一个类，都能够知道这个类的所有属性和方法，还能够调用它的任意属性和方法，这种动态获取信息我们称为反射机制</p>
+<p>应用场景：经常会遇到某个类的某个成员变量、方法或是属性是私有的或是只对系统应用开放，这时候就可以利用Java的反射机制通过反射来获取所需的私有成员或是方法。</p>
+<h5 id="49-反射的具体实现">49.反射的具体实现</h5>
+<p>想要实现反射，就必须先拿到这个类的字节码文件对象(.class)，通过字节码文件对象，就能够通过该类中的方法获取到我们想要的所有信息，每一个类对应着一个字节码文件也就对应着一个Class类型的对象，也就是字节码文件对象.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">通过Class 对象的forName()静态方法来获取Class对象。</span><br><span class="line"><span class="comment">//寻找该名称的类文件，加载进内存，并创建Class对象。</span></span><br><span class="line">Class clazz = Class.forName(className);</span><br><span class="line"><span class="comment">//通过Class对象的newInstance()创建类对象。</span></span><br><span class="line">Object o = clazz.newInstance();</span><br></pre></td></tr></table></figure>
+<h5 id="50-面向对象的三个基本特征">50.面向对象的三个基本特征</h5>
+<p>封装、继承、多态。</p>
+<p>封装：就是将属于一个抽象的方法属性特点等，封装到一个类里面，隐藏实现细节，对外提供访问</p>
+<p>继承：它是程序中两个类之间的一种关系，它可以继承父类的所有功能，并且无需重新编写原来的类的情况，对这些功能进行扩展</p>
+<p>多态：是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作，简单的说就是：<strong>允许将子类类型的指针赋值给父类类型的指针</strong></p>
+<p>实现多态，有二种方式，覆盖，重载。</p>
+<h5 id="51-spring的单例bean">51.spring的单例bean</h5>
+<p>单例bean的优势就是减少了创建实例，然后可以快速获取到bean，因为单例的获取操作除了第一次生成外，其他的都是从缓存中获取</p>
+<p>但是它有一个很大的劣势就是不能做到线程安全，所有的请求都共享一个bean实例</p>
+<h5 id="52-方法重写和重载">52.方法重写和重载</h5>
+<p>重写当子类需要修改父类的一些方法进行扩展，增大功能</p>
+<p>重载就是指子类的方法和父类的方法有完全相同的返回值类型、方法名、参数个数以及参数类型，</p>
+<h5 id="53-常见异常">53.常见异常</h5>
+<p>系统异常，空指针异常找不到值，还有一些业务类的异常</p>
+<h5 id="54-说一下-JVM-有哪些垃圾回收算法？">54.说一下 JVM 有哪些垃圾回收算法？</h5>
+<ul>
+<li>标记-清除算法：对存活的对象进行标记，清除没有标记的，也就是垃圾对象。缺点：效率不高，无法清除垃圾碎片。</li>
+<li>标记-整理算法：对存活的对象进行标记，让所有存活的对象都向一端移动，然后直接清除掉端边界以外的内存。</li>
+<li>复制算法：按照容量划分二个大小相等的内存区域，当一块用完的时候将活着的对象复制到另一块上，然后再把已使用的内存空间一次清理掉。缺点：内存使用率不高，只有原来的一半。</li>
+<li>分代收集算法：根据对象存活周期的不同将内存划分为几块，一般是新生代和老年代，新生代基本采用复制算法，老年代采用标记整理算法。</li>
+</ul>
+<p>55.<strong>什么是多线程？</strong></p>
+<p>多线程：是指从软件或者硬件上实现多个线程的并发技术。</p>
+<p><strong>多线程的好处：</strong></p>
+<ol>
+<li>使用多线程可以把程序中占据时间长的任务放到后台去处理，如图片、视屏的下载</li>
+<li>发挥多核处理器的优势，并发执行让系统运行的更快、更流畅，用户体验更好</li>
+</ol>
+<h2 id="java集合类问题">java集合类问题</h2>
+<h5 id="56-为什么HashMap中String、Integer这样的包装类适合作为K？">56.为什么HashMap中String、Integer这样的包装类适合作为K？</h5>
+<p>String、Integer等包装类的特性能够保证Hash值的不可更改性和计算准确性，能够有效的减少Hash碰撞的几率</p>
+<h5 id="57-ConcurrentHashMap和Hashtable的区别？">57.ConcurrentHashMap和Hashtable的区别？</h5>
+<p>ConcurrentHashMap 结合了 HashMap 和 HashTable 二者的优势。HashMap 没有考虑同步，HashTable 考虑了同步的问题。但是 HashTable 在每次同步执行时都要锁住整个结构。 ConcurrentHashMap 锁的方式是稍微细粒度的。</p>
+<h5 id="58-HashMap-和-ConcurrentHashMap-的区别？">58.HashMap 和 ConcurrentHashMap 的区别？</h5>
+<p>HashMap是线程不安全的，当出现多线程操作时，会出现安全隐患。</p>
+<p>ConcurrentHashMap是用的块锁，相当于是把院子里的有安全隐患的房间锁上了，这样一来，就不会让去其他房间办事的人等待了。</p>
+<p>在1.8中ConcurrentHashMap，采用了数组+链表+红黑树的实现方式来设计</p>
+<h5 id="58-ArrayList-和-Vector-的区别？">58.ArrayList 和 Vector 的区别？</h5>
+<p>共同点：这两个类都实现了List接口，他们都是有序的集合，就是存储在这两个集合的元素位置都是有顺序的，相当于一种动态的数组</p>
+<p>区别：</p>
+<p>​	同步性</p>
+<p>​			Vector 是线程安全的，在方法之间是线程同步的，如果有多个线程会访问到集合，那最好是使用 Vector，			因为不需要我们自己再去考虑和编写线程安全的代码</p>
+<p>​			ArrayList 是线程不安全的，它的方法之间是线程不同步的，它不考虑线程安全的问题，所以效率会高一些</p>
+<p>​	他们数据增长的形式也不相同</p>
+<p>​			ArrayList 在数据量达到容量的一半时（加载因子 0.5）增长为原容量的 (0.5 倍 + 1) 个空间。</p>
+<p>​			Vector 在数据满时（加载因子1）增长为原来的两倍（扩容增量：原容量的 2 倍）</p>
+<p>59.<strong>数组和 ArrayList 有什么区别？</strong></p>
+<ol>
+<li>Array 可以包含基本类型和对象类型，ArrayList 只能包含对象类型，不过在使用元素的时候会有装箱和拆箱的操作,降低了程序的性能。</li>
+<li>Array 大小是固定的，ArrayList 的大小是动态变化的。</li>
+<li>ArrayList 提供了更多的方法和特性，比如：addAll()，removeAll()，iterator() 等等。</li>
+</ol>
+<h5 id="60-ArrayList和LinkedList的区别？">60.ArrayList和LinkedList的区别？</h5>
+<p>区别：</p>
+<p>​	ArrayList底层是使用数组实现的，通过索引下标可以快速的查到数据，所以它对数据的查询操作效率高的多</p>
+<p>​	LinkedList底层使用双向链表实现的，所以它对于数据的增加删除操作效率较ArrayList要高</p>
+<p>共同点：他们都不是线程安全的，并且数据都可以重复</p>
+<h5 id="61-jdk1-7和jdk1-8的区别">61.jdk1.7和jdk1.8的区别</h5>
+<p>比如说新增了<strong>Lambda 表达式</strong>，<strong>stream流</strong>，<strong>接口可以有默认实现</strong>，<strong>Switch语句支持String类型。</strong></p>
 
     </div>
 
@@ -536,7 +634,7 @@ select id from t where name like ‘abc%’</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题整理"><span class="nav-number">1.</span> <span class="nav-text">面试题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器跟监听器的执行顺序-两遍"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">拦截器跟监听器的执行顺序(两遍)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-spring跟springboot都什么区别"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1.spring跟springboot都什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-什么是AOP，项目中哪些地方用到了AOP"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">2.什么是AOP，项目中哪些地方用到了AOP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-AOP的底层实现是什么"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">3.AOP的底层实现是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-动态代理是什么"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">4.动态代理是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-mybatis的dao层跟mapper是怎么映射的，是谁映射谁"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">5.mybatis的dao层跟mapper是怎么映射的，是谁映射谁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-mybaits如何实现动态链接"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7.mybaits如何实现动态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-OOM说一下？"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8.OOM说一下？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JVM如何调优"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">JVM如何调优</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-maven如何在不同的环境打包不同的jar包"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">9.maven如何在不同的环境打包不同的jar包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-项目中遇到的技术难点"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">10.项目中遇到的技术难点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-StringBuffer和StringBuilder有什么区别"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">11.StringBuffer和StringBuilder有什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-如何实现多线程"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">12.如何实现多线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-索引的建立"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">13.索引的建立</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-说一下redis缓存雪崩和缓存穿透，缓存击穿"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">14.说一下redis缓存雪崩和缓存穿透，缓存击穿</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存雪崩？什么原因下会导致缓存雪崩"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">什么是缓存雪崩？什么原因下会导致缓存雪崩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存穿透？"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">什么是缓存穿透？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存击穿？"><span class="nav-number">1.0.0.18.</span> <span class="nav-text">什么是缓存击穿？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-和-的区别是什么？"><span class="nav-number">1.0.0.19.</span> <span class="nav-text">15.#{} 和 ${} 的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-mysql分页的几种方式"><span class="nav-number">1.0.0.20.</span> <span class="nav-text">16.mysql分页的几种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-git常用命令"><span class="nav-number">1.0.0.21.</span> <span class="nav-text">17.git常用命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-springboot跟平常搭建springmvc项目又什么区别"><span class="nav-number">1.0.0.22.</span> <span class="nav-text">18.springboot跟平常搭建springmvc项目又什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-谈谈spring的理解"><span class="nav-number">1.0.0.23.</span> <span class="nav-text">19.谈谈spring的理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-error和exception有什么区别"><span class="nav-number">1.0.0.24.</span> <span class="nav-text">20.error和exception有什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#21-什么是springcloud？"><span class="nav-number">1.0.0.25.</span> <span class="nav-text">21.什么是springcloud？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么需要SpringCloud？"><span class="nav-number">1.0.0.26.</span> <span class="nav-text">为什么需要SpringCloud？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-MySQL-存储过程"><span class="nav-number">1.0.0.27.</span> <span class="nav-text">22.MySQL 存储过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-从服务器读取文件和下载流程"><span class="nav-number">1.0.0.28.</span> <span class="nav-text">23.从服务器读取文件和下载流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-异常处理可以怎么做"><span class="nav-number">1.0.0.29.</span> <span class="nav-text">24.异常处理可以怎么做</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何手动部署tomcat"><span class="nav-number">1.0.0.30.</span> <span class="nav-text">如何手动部署tomcat</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-如何去掉字符串中间的空格"><span class="nav-number">1.0.0.31.</span> <span class="nav-text">26.如何去掉字符串中间的空格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#27-如何判断List-String-list中是否包含某个字符串呢"><span class="nav-number">1.0.0.32.</span> <span class="nav-text">27.如何判断List list中是否包含某个字符串呢?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#28-list如何去重，实现的方式"><span class="nav-number">1.0.0.33.</span> <span class="nav-text">28.list如何去重，实现的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#29-前端防止按钮多次点击"><span class="nav-number">1.0.0.34.</span> <span class="nav-text">29.前端防止按钮多次点击</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#30-java截取字符串"><span class="nav-number">1.0.0.35.</span> <span class="nav-text">30.java截取字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#31-mysql常用的链接"><span class="nav-number">1.0.0.36.</span> <span class="nav-text">31.mysql常用的链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-sql的常用的函数"><span class="nav-number">1.0.0.37.</span> <span class="nav-text">32.sql的常用的函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-怎么把sql字符串转换为日期类型"><span class="nav-number">1.0.0.38.</span> <span class="nav-text">33.怎么把sql字符串转换为日期类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#34-springmvc实现文件上传的两种方式"><span class="nav-number">1.0.0.39.</span> <span class="nav-text">34.springmvc实现文件上传的两种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#36-java-enum枚举使用场景及优缺点"><span class="nav-number">1.0.0.40.</span> <span class="nav-text">36.java enum枚举使用场景及优缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#37-redis什么场景下使用到。"><span class="nav-number">1.0.0.41.</span> <span class="nav-text">37.redis什么场景下使用到。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#38-hashmap为什么是线程不安全的"><span class="nav-number">1.0.0.42.</span> <span class="nav-text">38.hashmap为什么是线程不安全的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#39-SQL优化的几种方式"><span class="nav-number">1.0.0.43.</span> <span class="nav-text">39.SQL优化的几种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#40-mysql死锁是如何产生的。"><span class="nav-number">1.0.0.44.</span> <span class="nav-text">40.mysql死锁是如何产生的。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#41-解决MySQL性能瓶颈"><span class="nav-number">1.0.0.45.</span> <span class="nav-text">41.解决MySQL性能瓶颈</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题整理"><span class="nav-number">1.</span> <span class="nav-text">面试题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器跟监听器的执行顺序-两遍"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">拦截器跟监听器的执行顺序(两遍)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-spring跟springboot都什么区别"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1.spring跟springboot都什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-什么是AOP，项目中哪些地方用到了AOP"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">2.什么是AOP，项目中哪些地方用到了AOP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-AOP的底层实现是什么"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">3.AOP的底层实现是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-动态代理是什么"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">4.动态代理是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-mybatis的dao层跟mapper是怎么映射的，是谁映射谁"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">5.mybatis的dao层跟mapper是怎么映射的，是谁映射谁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-mybaits如何实现动态链接"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7.mybaits如何实现动态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-OOM说一下？"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8.OOM说一下？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JVM如何调优"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">JVM如何调优</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-maven如何在不同的环境打包不同的jar包"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">9.maven如何在不同的环境打包不同的jar包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-项目中遇到的技术难点"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">10.项目中遇到的技术难点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-StringBuffer和StringBuilder有什么区别"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">11.StringBuffer和StringBuilder有什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-如何实现多线程"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">12.如何实现多线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-索引的建立"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">13.索引的建立</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-说一下redis缓存雪崩和缓存穿透，缓存击穿"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">14.说一下redis缓存雪崩和缓存穿透，缓存击穿</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存雪崩？什么原因下会导致缓存雪崩"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">什么是缓存雪崩？什么原因下会导致缓存雪崩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存穿透？"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">什么是缓存穿透？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是缓存击穿？"><span class="nav-number">1.0.0.18.</span> <span class="nav-text">什么是缓存击穿？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-和-的区别是什么？"><span class="nav-number">1.0.0.19.</span> <span class="nav-text">15.#{} 和 ${} 的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-mysql分页的几种方式"><span class="nav-number">1.0.0.20.</span> <span class="nav-text">16.mysql分页的几种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-git常用命令"><span class="nav-number">1.0.0.21.</span> <span class="nav-text">17.git常用命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-springboot跟平常搭建springmvc项目又什么区别，Spring-Boot与Spring的区别？"><span class="nav-number">1.0.0.22.</span> <span class="nav-text">18.springboot跟平常搭建springmvc项目又什么区别，Spring Boot与Spring的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-谈谈spring的理解"><span class="nav-number">1.0.0.23.</span> <span class="nav-text">19.谈谈spring的理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-error和exception有什么区别"><span class="nav-number">1.0.0.24.</span> <span class="nav-text">20.error和exception有什么区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#21-什么是springcloud？"><span class="nav-number">1.0.0.25.</span> <span class="nav-text">21.什么是springcloud？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么需要SpringCloud？"><span class="nav-number">1.0.0.26.</span> <span class="nav-text">为什么需要SpringCloud？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是分布式和微服务"><span class="nav-number">1.0.0.27.</span> <span class="nav-text">什么是分布式和微服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#22-MySQL-存储过程"><span class="nav-number">1.0.0.28.</span> <span class="nav-text">22.MySQL 存储过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#23-从服务器读取文件和下载流程"><span class="nav-number">1.0.0.29.</span> <span class="nav-text">23.从服务器读取文件和下载流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#24-异常处理可以怎么做"><span class="nav-number">1.0.0.30.</span> <span class="nav-text">24.异常处理可以怎么做</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何手动部署tomcat"><span class="nav-number">1.0.0.31.</span> <span class="nav-text">如何手动部署tomcat</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-如何去掉字符串中间的空格"><span class="nav-number">1.0.0.32.</span> <span class="nav-text">26.如何去掉字符串中间的空格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#27-如何判断List-String-list中是否包含某个字符串呢"><span class="nav-number">1.0.0.33.</span> <span class="nav-text">27.如何判断List list中是否包含某个字符串呢?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#28-list如何去重，实现的方式"><span class="nav-number">1.0.0.34.</span> <span class="nav-text">28.list如何去重，实现的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#29-前端防止按钮多次点击"><span class="nav-number">1.0.0.35.</span> <span class="nav-text">29.前端防止按钮多次点击</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#30-java截取字符串"><span class="nav-number">1.0.0.36.</span> <span class="nav-text">30.java截取字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#31-mysql常用的链接"><span class="nav-number">1.0.0.37.</span> <span class="nav-text">31.mysql常用的链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#32-sql的常用的函数"><span class="nav-number">1.0.0.38.</span> <span class="nav-text">32.sql的常用的函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#33-怎么把sql字符串转换为日期类型"><span class="nav-number">1.0.0.39.</span> <span class="nav-text">33.怎么把sql字符串转换为日期类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#34-springmvc实现文件上传的两种方式"><span class="nav-number">1.0.0.40.</span> <span class="nav-text">34.springmvc实现文件上传的两种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#36-java-enum枚举使用场景及优缺点"><span class="nav-number">1.0.0.41.</span> <span class="nav-text">36.java enum枚举使用场景及优缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#37-redis什么场景下使用到。"><span class="nav-number">1.0.0.42.</span> <span class="nav-text">37.redis什么场景下使用到。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#38-hashmap为什么是线程不安全的"><span class="nav-number">1.0.0.43.</span> <span class="nav-text">38.hashmap为什么是线程不安全的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#39-SQL优化的几种方式"><span class="nav-number">1.0.0.44.</span> <span class="nav-text">39.SQL优化的几种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的"><span class="nav-number">1.0.0.45.</span> <span class="nav-text">mysql的性能优化方式有哪些，你用过哪几种，分别在什么情况下去使用的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#40-mysql死锁是如何产生的。"><span class="nav-number">1.0.0.46.</span> <span class="nav-text">40.mysql死锁是如何产生的。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#41-解决MySQL性能瓶颈"><span class="nav-number">1.0.0.47.</span> <span class="nav-text">41.解决MySQL性能瓶颈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#42-并发与并行的区别是什么？"><span class="nav-number">1.0.0.48.</span> <span class="nav-text">42.并发与并行的区别是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#43-oracle分页和mysql分页区别"><span class="nav-number">1.0.0.49.</span> <span class="nav-text">43.oracle分页和mysql分页区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#44-ThreadLocal有了解过吗。"><span class="nav-number">1.0.0.50.</span> <span class="nav-text">44.ThreadLocal有了解过吗。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#45-ThreadLocal和Synchronized区别"><span class="nav-number">1.0.0.51.</span> <span class="nav-text">45.ThreadLocal和Synchronized区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#46-抽象类和接口都有什么区别？"><span class="nav-number">1.0.0.52.</span> <span class="nav-text">46.抽象类和接口都有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#47-如何保证缓存-redis-与数据库-MySQL-的一致性"><span class="nav-number">1.0.0.53.</span> <span class="nav-text">47.如何保证缓存(redis)与数据库(MySQL)的一致性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#48-java什么是反射机制"><span class="nav-number">1.0.0.54.</span> <span class="nav-text">48.java什么是反射机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#49-反射的具体实现"><span class="nav-number">1.0.0.55.</span> <span class="nav-text">49.反射的具体实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#50-面向对象的三个基本特征"><span class="nav-number">1.0.0.56.</span> <span class="nav-text">50.面向对象的三个基本特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#51-spring的单例bean"><span class="nav-number">1.0.0.57.</span> <span class="nav-text">51.spring的单例bean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#52-方法重写和重载"><span class="nav-number">1.0.0.58.</span> <span class="nav-text">52.方法重写和重载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#53-常见异常"><span class="nav-number">1.0.0.59.</span> <span class="nav-text">53.常见异常</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#54-说一下-JVM-有哪些垃圾回收算法？"><span class="nav-number">1.0.0.60.</span> <span class="nav-text">54.说一下 JVM 有哪些垃圾回收算法？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java集合类问题"><span class="nav-number">2.</span> <span class="nav-text">java集合类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#56-为什么HashMap中String、Integer这样的包装类适合作为K？"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">56.为什么HashMap中String、Integer这样的包装类适合作为K？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#57-ConcurrentHashMap和Hashtable的区别？"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">57.ConcurrentHashMap和Hashtable的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#58-HashMap-和-ConcurrentHashMap-的区别？"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">58.HashMap 和 ConcurrentHashMap 的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#58-ArrayList-和-Vector-的区别？"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">58.ArrayList 和 Vector 的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#60-ArrayList和LinkedList的区别？"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">60.ArrayList和LinkedList的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#61-jdk1-7和jdk1-8的区别"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">61.jdk1.7和jdk1.8的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
